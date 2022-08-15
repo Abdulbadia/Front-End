@@ -1,0 +1,9 @@
+.pagebody {
+    padding: 0 160px;
+}
+
+@media (max-width: 1200px) {
+    .pagebody {
+        padding: 0 0;
+    }
+}

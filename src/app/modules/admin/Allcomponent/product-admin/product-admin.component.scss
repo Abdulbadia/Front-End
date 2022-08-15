@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+    font-size: 25px;
+}
+
+table th,
+td {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.example-button-row {
+    display: table-cell;
+    width: 490px;
+}
