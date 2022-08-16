@@ -1,0 +1,9 @@
+<div class="m-3 col-2">
+    <label for="" class="m-2">{{title}}:</label>
+    <select class="form-select" (change)="ShowChange($event)">
+        <option value="all" selected >All</option>
+        <option value="{{item}}" *ngFor="let item of data">{{item}}</option>
+       
+
+    </select>
+</div>

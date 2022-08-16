@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  URL: "http://localhost:45421/api"
+  URL: "http://localhost:45421/api",
+  baseApi:"https://fakestoreapi.com/",
+  cartitem:"https://fakestoreapi.com/carts" 
 };
 
 /*

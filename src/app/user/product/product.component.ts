@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+//import { MessengerService } from '../MessengerServices/messenger.service';
 
 @Component({
   selector: 'app-product',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
+  @Input() data:any={}
 
-  constructor() { }
+  constructor() { }//private MSG:MessengerService
 
   ngOnInit(): void {
   }
+  handleAddToCart(){
 
+   // this.MSG.sendMSG(this.data)
+      
+    }
 }
