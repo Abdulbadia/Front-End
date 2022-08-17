@@ -5,8 +5,9 @@
 export const environment = {
   production: false,
   URL: "http://localhost:45421/api",
+  APIURL:'http://localhost:45421',
   baseApi:"https://fakestoreapi.com/",
-  cartitem:"https://fakestoreapi.com/carts" 
+  cartitem:"https://fakestoreapi.com/carts"
 };
 
 /*
