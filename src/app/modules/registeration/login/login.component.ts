@@ -4,6 +4,7 @@ import { stringify } from 'querystring';
 import { Ilogin } from '../../../Interfaces/ilogin';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../Services/authentication.service';
+import { Irespond } from '../../../Interfaces/irespond';
 
 @Component({
   selector: 'app-login',
@@ -32,10 +33,13 @@ userRegfrm:FormGroup;
         email:this.username.value,
         password:this.password.value
       }
-
+let respond:Irespond;
 const observer={
-  next:()=>{alert("login successfully");
-  this.router.navigate([""])
+  next:(respond)=>{
+    console.log(respond.token);
+    localStorage.setItem("token",respond.token);
+    alert(`login successfully as ${respond.type}`);
+    respond.type=="admin"?this.router.navigate(["Admin/products"]):this.router.navigate([""])
   },
   error:(err:Error)=>{err.message}
   }

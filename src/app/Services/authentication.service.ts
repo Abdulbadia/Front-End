@@ -1,9 +1,10 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, retry, throwError } from 'rxjs';
+import { catchError, retry, throwError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Iuser } from '../Interfaces/iuser';
 import { Ilogin } from '../Interfaces/ilogin';
+import { Irespond } from '../Interfaces/irespond';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +22,8 @@ httpoptions;
 
   register(user:Iuser)
   {
-   let a= this.httpclient.post(`${environment.APIURL}/api/Account/Register`,JSON.stringify(user),this.httpoptions).pipe(catchError(this.handleError));
-   console.log(a);
+   let a= this.httpclient.post(`${environment.APIURL}/api/users/Register`,JSON.stringify(user),this.httpoptions).pipe(catchError(this.handleError));
+   //console.log(a);
    return a;
   }
   private handleError(error:HttpErrorResponse){
@@ -36,9 +37,16 @@ httpoptions;
   }
 Login(user:Ilogin){
 
-  let a= this.httpclient.post(`${environment.APIURL}/api/Account/Login`,JSON.stringify(user),this.httpoptions).pipe(catchError(this.handleError));
+  let a= this.httpclient.post(`${environment.APIURL}/api/users/Login`,JSON.stringify(user),this.httpoptions).pipe(catchError(this.handleError));
   console.log(a);
   return a;
+}
+logout(){
+localStorage.removeItem('token');
+}
+get isUserLogged():boolean
+{
+return (localStorage.getItem("token"))?true:false
 }
 
 }

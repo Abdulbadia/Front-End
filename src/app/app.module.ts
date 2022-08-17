@@ -31,6 +31,7 @@ import { CartitemsComponent } from './user/cart/cartitems/cartitems.component';
     PageNotFoundComponent,
    // CartitmesComponent,
     CartitemsComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -39,7 +40,7 @@ import { CartitemsComponent } from './user/cart/cartitems/cartitems.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedfilesModule
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

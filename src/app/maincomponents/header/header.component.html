@@ -204,7 +204,7 @@
                           <li class="nav-item dropdown me-lg-4">
                               <a class="nav-link fw-bolder dropdown-toggle py-lg-4" href="#" role="button" data-bs-toggle="dropdown"
                                   aria-haspopup="true" aria-expanded="false">
-                                  Demo Pages
+                                  Pages
                               </a>
                               <ul class="dropdown-menu">
                                   <li><a class="dropdown-item" href="./index.html">Homepage</a></li>
@@ -240,36 +240,44 @@
                           </button>
                       </li>
                       <!-- /Navbar Search-->
-
+                      <!-- Navbar Cart-->
+                      <li class="ms-1 d-inline-block position-relative">
+                        <button
+                            class="btn btn-link px-2 text-decoration-none d-flex align-items-center disable-child-pointer"
+                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                            <i class="ri-shopping-cart-2-line ri-lg align-middle position-relative z-index-10"></i>
+                            <span
+                                class="fs-xs fw-bolder f-w-5 f-h-5 bg-orange rounded-lg d-block lh-1 pt-1 position-absolute top-0 end-0 z-index-20 mt-2 text-white">2</span>
+                        </button>
+                    </li>
+                    <!-- /Navbar Cart-->
+                    <li class="ms-1 d-none d-lg-inline-block" [ngClass]="logoutshowandhide">
+                      <div class="btn btn-link px-2 text-decoration-none d-flex align-items-center" style="cursor:initial">
+                          <!-- <i class="ri-user-line ri-lg align-middle"></i> -->
+                          ahmed
+                      </div>
+                  </li>
                       <!-- Navbar Wishlist-->
-                      <li class="ms-1 d-none d-lg-inline-block">
-                          <a class="btn btn-link px-2 py-0 text-decoration-none d-flex align-items-center"
+                      <li class="ms-1 d-none "[ngClass]="loginshowandhide">
+                          <a  [routerLink]="['/Auth/Login']" class="btn btn-link px-2 py-0 text-decoration-none d-flex align-items-center"
                               href="#">
-                              <i class="ri-heart-line ri-lg align-middle"></i>
+                              <!-- <i class="ri-heart-line ri-lg align-middle"></i> -->
+                              login
                           </a>
                       </li>
                       <!-- /Navbar Wishlist-->
 
                       <!-- Navbar Login-->
-                      <li class="ms-1 d-none d-lg-inline-block">
-                          <a class="btn btn-link px-2 text-decoration-none d-flex align-items-center"
-                              href="#">
-                              <i class="ri-user-line ri-lg align-middle"></i>
+                      <li class="ms-1 d-none d-lg-inline-block" [ngClass]="logoutshowandhide">
+                          <a class="btn btn-link px-2 text-decoration-none d-flex align-items-center"(click)="logout()"
+                              >
+                              <!-- <i class="ri-user-line ri-lg align-middle"></i> -->
+                              logout
                           </a>
                       </li>
                       <!-- /Navbar Login-->
 
-                      <!-- Navbar Cart-->
-                      <li class="ms-1 d-inline-block position-relative">
-                          <button
-                              class="btn btn-link px-2 text-decoration-none d-flex align-items-center disable-child-pointer"
-                              data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
-                              <i class="ri-shopping-cart-2-line ri-lg align-middle position-relative z-index-10"></i>
-                              <span
-                                  class="fs-xs fw-bolder f-w-5 f-h-5 bg-orange rounded-lg d-block lh-1 pt-1 position-absolute top-0 end-0 z-index-20 mt-2 text-white">2</span>
-                          </button>
-                      </li>
-                      <!-- /Navbar Cart-->
+
 
                   </ul>
                   <!-- Navbar Icons-->
