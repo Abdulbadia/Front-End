@@ -6,6 +6,7 @@ import { CartComponent } from './user/cart/cart.component';
 import { CategoryComponent } from './user/category/category.component';
 import { ProductComponent } from './user/product/product.component';
 import { PageNotFoundComponent } from './maincomponents/page-not-found/page-not-found.component';
+import { AuthGuardGuard } from './guards/auth-guard.guard';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -27,7 +28,7 @@ const routes: Routes = [
 // ,
 
  , {path:"Admin",loadChildren:()=>import("src/app/modules/admin/admin.module")
-.then(m=>m.AdminModule)}
+.then(m=>m.AdminModule),canActivate:[AuthGuardGuard]}
 
 ,{path:'**',component:PageNotFoundComponent}
 

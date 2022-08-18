@@ -1,4 +1,5 @@
 export interface Irespond {
   token:string,
-  type:string
+  type:string,
+  fullname:string;
 }
