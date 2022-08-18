@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, retry, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { IProduct } from '../Standers/iproduct';
+import { MyproductCreate } from '../Standers/myproduct-create';
 
 @Injectable({
   providedIn: 'root'
@@ -24,14 +25,14 @@ export class ProductAPiService {
       .pipe(retry(3),
         catchError(this.handleError))
   }
-
-  Create_product(body: IProduct): Observable<IProduct> {
-
-    return this.http.post<IProduct>(`${environment.URL}/products`, body, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2),
-      catchError(this.handleError))
+  Create_product(body: MyproductCreate): Observable<MyproductCreate> {
+    return this.http.post<MyproductCreate>(`${environment.URL}/Product`, JSON.stringify(body),
+      { headers: { 'Content-Type': 'application/json' } })
+      .pipe(retry(2),
+        catchError(this.handleError))
   }
   Edit_product_edit(pid: number, product: IProduct): Observable<IProduct> {
-    return this.http.put<IProduct>(`${environment.URL}/products/${pid}`, product,
+    return this.http.put<IProduct>(`${environment.URL}/Product/${pid}`, product,
       { headers: { 'Content-Type': 'application/json' } }).pipe(
         retry(2),
         catchError(this.handleError))

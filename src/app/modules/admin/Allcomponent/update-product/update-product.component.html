@@ -1,10 +1,9 @@
-<form #prdFrom="ngForm" (ngSubmit)="save()">
+<form #prdFrom="ngForm" (ngSubmit)="save(product.id)">
     <div class="form-row">
-        <!-- <input type="hidden" id="prdid" name="productId" [(ngModel)]="product.productId"> -->
         <div class="form-group col-md-10">
             <label for="PrdName">ProductName</label>
             <input type="text" class="form-control" id="PrdName" #prdName="ngModel" placeholder="ProductName" required
-                minlength="4" name="productName" [(ngModel)]="product.productName">
+                minlength="4" name="productName" [(ngModel)]="product.name">
             <div class="text text-bg-warning" [hidden]="prdName.valid || prdName.untouched">
                 <small *ngIf="prdName.errors?.['required']">Name is not required</small>
                 <small *ngIf="prdName.errors?.['minlength']"> Name must be 4 Characters</small>
@@ -34,23 +33,23 @@
         </div>
         <div class="form-group col-md-10">
             <label for="Brands">Product Brands</label>
-            <select id="Brands" class="form-control" name="product.brands" [(ngModel)]="product.brandId">
-                <option [value]="product.brandId">{{product.brandName}}</option>
-
-                <!--*ngFor="let item of Brand" [value]="item.id"-->
+            <select id="Brands" class="form-control" name="product.brands" [(ngModel)]="product.brandID">
+                <option [value]="product.brandID">{{product.brand}}</option>
+                <option *ngFor="let item of Brand" [value]="item.id">{{item.bName}}</option>
             </select>
         </div>
         <div class="form-group col-md-10">
             <label for="Category">Product Category</label>
             <select id="Category" class="form-control" name="Category" [(ngModel)]="product.categoryId">
-                <option [value]="product.categoryId">{{product.categoryName}}</option>
+                <option [value]="product.categoryId"> {{product.category}}</option>
+                <option *ngFor="let item of Categorie" [value]="item.id">{{item.catName}}</option>
             </select>
-            <!--*ngFor="let item of Categorie" [value]="item.id"-->
         </div>
         <div class="form-group col-md-10">
             <label for="Availability">Product Availability</label>
             <select id="Availability" class="form-control" name="Availability" [(ngModel)]="product.availability">
-                <option [value]="product.availability">True</option>
+                <option [value]="product.availability">{{product.availability}}</option>
+                <option> True</option>
                 <option> False</option>
             </select>
         </div>
@@ -64,3 +63,7 @@
     <br>
     <br>
 </form>
+
+<!-- <div>
+    {{product|json}}
+</div> -->

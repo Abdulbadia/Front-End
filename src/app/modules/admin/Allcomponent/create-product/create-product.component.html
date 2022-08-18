@@ -1,9 +1,12 @@
+<div>
+    {{product|json}}
+</div>
 <form #prdFrom="ngForm" (ngSubmit)="addproduct()">
     <div class="form-row">
         <div class="form-group col-md-10">
             <label for="PrdName">ProductName</label>
             <input type="text" class="form-control" id="PrdName" #prdName="ngModel" placeholder="ProductName" required
-                minlength="4" name="productName" [(ngModel)]="product.productName">
+                minlength="4" name="productName" [(ngModel)]="product.name">
             <div class=" text text-bg-warning" [hidden]="prdName.valid || prdName.untouched">
                 <small *ngIf="prdName.errors?.['required']">Name is not required</small>
                 <small *ngIf="prdName.errors?.['minlength']"> Name must be 4 Characters</small>
@@ -19,10 +22,10 @@
             </div>
         </div>
         <div class="form-group col-md-10">
-            <label for="Price">Product Quantity</label>
-            <input type="number" class="form-control" id="Price" placeholder="Price" [(ngModel)]="product.quantity"
-                min="0" #prdprice="ngModel" name="product.price" required>
-            <div class="text text-bg-warning" [hidden]="prdprice.valid || prdprice.untouched">
+            <label for="quantity">Product Quantity</label>
+            <input type="number" class="form-control" id="quantity" placeholder="Quantity"
+                [(ngModel)]="product.quantity" min="0" #prdprice="ngModel" name="product.quantity" required>
+            <div class="text text-bg-danger" [hidden]="prdprice.valid || prdprice.untouched">
                 <small *ngIf="prdprice.errors?.['required']">price is not required</small>
                 <small *ngIf="prdprice.errors?.['min']"> prices must be Number valid</small>
             </div>
@@ -31,34 +34,39 @@
     <div class="form-group col-md-10">
         <label for="Descrption">Product Descrption</label>
         <textarea class="form-control" id="Descrption" placeholder="Descrption" [(ngModel)]="product.description"
-            name="descrption"></textarea>
+            #prdDescr="ngModel" name="descrption"></textarea>
+        <div class="text-bg-warning" [hidden]="prdDescr.valid||prdDescr.untouched" required>
+            <span *ngIf="prdDescr.errors?.['required']">Descrption is not available</span>
+        </div>
     </div>
 
     <div class="form-row">
         <div class="form-group col-md-10">
             <label for="image">Product image</label>
-            <input type="file" class="form-control" id="image" [(ngModel)]="product.image" name="product.image"
-                required>
+            <input type="file" class="form-control" id="image" [(ngModel)]="product.image" name="product.image">
         </div>
         <div class="form-group col-md-10">
             <label for="Brands">Product Brands</label>
-            <select id="Brands" class="form-control" name="product.brands" [(ngModel)]="product.brandId">
+            <select id="Brands" class="form-control" #prdSelectBrand="ngModel" name="product.brands"
+                [(ngModel)]="product.brandID" required>
                 <option *ngFor="let item of Brand" [value]="item.id">{{item.bName}}</option>
             </select>
+
+
         </div>
-        <div class="form-group col-md-10">
-            <label for="Category">Product Category</label>
-            <select id="Category" class="form-control" name="Category" [(ngModel)]="product.categoryId">
-                <option *ngFor="let item of Categorie" [value]="item.id">{{item.catName}}</option>
-            </select>
-        </div>
-        <div class="form-group col-md-10">
-            <label for="Availability">Product Availability</label>
-            <select id="Availability" class="form-control" name="Availability" [(ngModel)]="product.availability">
-                <option>True</option>
-                <option> False</option>
-            </select>
-        </div>
+    </div>
+    <div class="form-group col-md-10">
+        <label for="Category">Product Category</label>
+        <select id="Category" class="form-control" name="Category" [(ngModel)]="product.categoryId" required>
+            <option *ngFor="let item of Categorie" [value]="item.id">{{item.catName}}</option>
+        </select>
+    </div>
+    <div class="form-group col-md-10">
+        <label for="Availability">Product Availability</label>
+        <select id="Availability" class="form-control" name="Availability" [(ngModel)]="product.availability">
+            <option>True</option>
+            <option> False</option>
+        </select>
     </div>
     <div class="form-group col-md-10">
         <label for="discountPercentage">Product discountPercentage</label>
@@ -69,3 +77,5 @@
     <br>
     <br>
 </form>
+
+<button (click)="addproducttest()">test</button>

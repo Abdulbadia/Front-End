@@ -17,42 +17,15 @@ export class UpdateProductComponent implements OnInit {
 
   constructor(private ser: ProductAPiService, private router: Router,
     private Active: ActivatedRoute, private _Catalog: CategoriesApiService, private _Braid: ApiBrandService, private _Location: Location) { }
-
-  // id = this.Active.snapshot.paramMap.get('id');
-  // product: ProductbyID = {} as ProductbyID;
+  Brand: IBrand[];
+   Categorie: Categories[];
   product!: IProduct;
-  // Brand: IBrand[];
-  // Categorie: Categories[];
+
   ngOnInit(): void {
-    //   this.get_ProductbyID(this.id);
-    //   this.get_AllCata();
-    //   this.get_AllBrandIds();
-
     this.getProduct();
+    this.get_AllBrandIds();
+    this.get_AllCata();
   }
-
-
-  // get_ProductbyID(id: number) {
-  //   return this.ser.get_productByID(id).subscribe(data => {
-  //     this.product = data;
-  //   })
-  // }
-  // get_AllCata() {
-  //   return this._Catalog.get_AllCata().subscribe(data => {
-  //     this.Categorie = data;
-  //   })
-  // }
-
-  // get_AllBrandIds() {
-  //   return this._Braid.get_AllBrandIds().subscribe(data => {
-  //     this.Brand = data;
-  //   })
-  // }
-  // Updata_product() {
-  //   return this.ser.Edit_product_edit(this.id, this.body).subscribe(data => {
-  //     console.log(data);
-  //   })
-  // }
   getProduct(): void {
     const product_code = Number(this.Active.snapshot.paramMap.get('id'));
     this.ser.get_productByID(product_code)
@@ -61,8 +34,39 @@ export class UpdateProductComponent implements OnInit {
   goBack(): void {
     this._Location.back();
   }
-  id;
-  save(): void {
-    this.ser.Edit_product_edit(this.id, this.product).subscribe(product => this.goBack())
+
+  save(id:number): void {
+    this.ser.Edit_product_edit(id, this.product).subscribe(product => this.goBack())
   }
+  get_AllBrandIds() {
+    return this._Braid.get_AllBrandIds().subscribe(data => {
+      this.Brand = data;
+    })
+  }
+  get_AllCata() {
+    return this._Catalog.get_AllCata().subscribe(data => {
+      this.Categorie = data;
+    })
+   }
 }
+
+
+
+
+  // get_ProductbyID(id: number) {
+  //   return this.ser.get_productByID(id).subscribe(data => {
+  //     this.product = data;
+  //   })
+  // }
+  
+
+
+  // Updata_product() {
+  //   return this.ser.Edit_product_edit(this.id, this.body).subscribe(data => {
+  //     console.log(data);
+  //   })
+  // }
+
+    //   this.get_ProductbyID(this.id);
+    //   this.get_AllCata();
+    //   this.get_AllBrandIds();
