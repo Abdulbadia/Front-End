@@ -92,14 +92,14 @@
                         </button>
                     </li>
                     <!-- /Navbar Cart-->
-                    <li class="ms-1 d-none d-lg-inline-block" [ngClass]="logoutshowandhide">
+                    <li class="ms-1 d-none d-lg-inline-block" [ngClass]="this.isUserLogged?'d-lg-inline-block':'d-lg-none'">
                       <div class="btn btn-link px-2 text-decoration-none d-flex align-items-center" style="cursor:initial">
                           <!-- <i class="ri-user-line ri-lg align-middle"></i> -->
                           ahmed
                       </div>
                   </li>
                       <!-- Navbar Wishlist-->
-                      <li class="ms-1 d-none "[ngClass]="loginshowandhide">
+                      <li class="ms-1 d-none "[ngClass]="this.isUserLogged?'d-lg-none':'d-lg-inline-block'">
                           <a  [routerLink]="['/Auth/Login']" class="btn btn-link px-2 py-0 text-decoration-none d-flex align-items-center"
                               href="#">
                               <!-- <i class="ri-heart-line ri-lg align-middle"></i> -->
@@ -109,7 +109,7 @@
                       <!-- /Navbar Wishlist-->
 
                       <!-- Navbar Login-->
-                      <li class="ms-1 d-none d-lg-inline-block" [ngClass]="logoutshowandhide">
+                      <li class="ms-1 d-none d-lg-inline-block" [ngClass]="this.isUserLogged?'d-lg-inline-block':'d-lg-none'">
                           <a class="btn btn-link px-2 text-decoration-none d-flex align-items-center"(click)="logout()"
                               >
                               <!-- <i class="ri-user-line ri-lg align-middle"></i> -->

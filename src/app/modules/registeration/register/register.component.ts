@@ -63,13 +63,16 @@ submit(){
   address:`${this.governorat.value},${this.city.value},${this.street.value}`,
   email:this.username.value,
   password:this.password.value,
-  image:""
+  image:"",
+  type:"admin"
   }
 const observer={
 next:()=>{alert("Account Added Successfully");
 this.router.navigate(["Auth/Login"])
 },
-error:(err:Error)=>{err.message}
+error:(err:Error)=>{
+  alert("Something wrong happened");
+  err.message}
 }
 this.AuthenticationService.register(user).subscribe(observer);
 }
