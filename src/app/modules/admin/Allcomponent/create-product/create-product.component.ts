@@ -6,7 +6,6 @@ import { ProductAPiService } from '../../Shared/product-api.service';
 import { Categories } from '../../Standers/categories';
 import { IBrand } from '../../Standers/ibrand';
 import { IProduct } from '../../Standers/iproduct';
-import { MyproductCreate } from '../../Standers/myproduct-create';
 
 @Component({
   selector: 'app-create-product',
@@ -18,12 +17,9 @@ export class CreatePRoductComponent implements OnInit {
     private _router: Router, private Bra_APi: ApiBrandService) {
   }
 
-  product: MyproductCreate = {} as MyproductCreate;
+  product: IProduct = {} as IProduct;
   Categorie: Categories[] = [];
   Brand: IBrand[] = [];
-
-
-
   ngOnInit(): void {
     this.get_Categories();
     this.get_AllBrandIds();
@@ -31,35 +27,21 @@ export class CreatePRoductComponent implements OnInit {
   addproduct() {
     const Myobservable =
     {
-      next: (product: MyproductCreate) => {
+      next: (product: IProduct) => {
         alert("product Success!");
-        console.log(product)
         this._router.navigateByUrl('/Admin/products');
       },
       error: (error: Error) => { console.log(error); }
     }
-
+    this.product.brandID = Number(this.product.brandID);
+    this.product.categoryId = Number(this.product.categoryId);
+    this.product.availability ? (this.product.availability = true) : (this.product.availability = false)
+    console.log(this.product);
     return this.api_Ser.Create_product(this.product).subscribe(Myobservable);
   }
 
 
-  addproducttest() {
-    const myproduct: MyproductCreate = {
-      name: 'dsdsds',
-      price: 20,
-      quantity: 20,
-      availability: true,
-      discountPercentage: 0.1,
-      brandID: 1,
-      categoryId: 1,
-      image: "",
-      description: ""
-    }
 
-    return this.api_Ser.Create_product(myproduct).subscribe(data => {
-      alert(data);
-    })
-  }
 
   get_Categories() {
     return this.Cat_Api.get_AllCata().subscribe(data => {
@@ -83,3 +65,35 @@ export class CreatePRoductComponent implements OnInit {
 
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // addproducttest() {
+  //   const myproduct: MyproductCreate = {
+  //     name: 'dsdsds',
+  //     price: 20,
+  //     quantity: 20,
+  //     availability: true,
+  //     discountPercentage: 0.1,
+  //     brandID: 1,
+  //     categoryId: 1,
+  //     image: "",
+  //     description: ""
+  //   }
+
+  //   return this.api_Ser.Create_product(myproduct).subscribe(data => {
+  //     alert(data);
+  //   })
+  // }

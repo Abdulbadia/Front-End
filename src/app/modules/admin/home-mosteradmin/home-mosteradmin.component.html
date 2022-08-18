@@ -37,31 +37,21 @@
 <div class="br-sideleft">
     <a id="remove-menu" class="la la-close d-xl-none"></a>
     <div class="br-logo d-flex justify-content-center align-items-center">
-        <!-- <a href="index.html"><img src="./assets/images/AdminImage/logo.png" alt="MS Admin Panel" width="80" /></a> -->
-        <a class="nav-link fw-bolder  py-lg-4"  role="button"[routerLink]="['']" >
-          <div class="d-flex align-items-center">
-                            <div class="f-w-6 d-flex align-items-center me-2 lh-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 194 194"><path fill="currentColor" class="svg-logo-white" d="M47.45,60l1.36,27.58,53.41-51.66,50.87,50,3.84-26L194,100.65V31.94A31.94,31.94,0,0,0,162.06,0H31.94A31.94,31.94,0,0,0,0,31.94v82.57Z"/><path fill="currentColor" class="svg-logo-dark" d="M178.8,113.19l1,34.41L116.3,85.92l-14.12,15.9L88.07,85.92,24.58,147.53l.93-34.41L0,134.86v27.2A31.94,31.94,0,0,0,31.94,194H162.06A31.94,31.94,0,0,0,194,162.06V125.83Z"/></svg>
-                            </div>
-                             <span class="fs-5">
-                              Alpine
-                            </span>
-            </div>
-        </a>
+        <a href="index.html"><img src="./assets/images/AdminImage/logo.png" alt="MS Admin Panel" width="80" /></a>
     </div>
     <ul class="custom-scroll">
-        <li class="active">
-            <a href="index.html" class="waves-effect waves-primary"><i class="la la-dashboard"></i>Admins</a>
+        <li routerLinkActive="active">
+            <a class="waves-effect waves-primary"><i class="la la-dashboard"></i>Admins</a>
         </li>
-        <li>
+        <li routerLinkActive="active">
             <a routerLink='./products' class="waves-effect waves-primary"><i class="la la-clone"></i>Products</a>
         </li>
 
-        <li class="dropdown-sub-menu">
-            <a routerLink="./User" routerLinkActive="active" class="waves-effect waves-primary">
+        <li class="dropdown-sub-menu" routerLinkActive="active">
+            <a routerLink="./User" class="waves-effect waves-primary">
                 <i class="la la-users"></i>Customers</a>
         </li>
-        <li><a routerLink="./orders" routerLinkActive="active" class="waves-effect waves-primary"><i
+        <li routerLinkActive="active"><a routerLink="./orders" class="waves-effect waves-primary"><i
                     class="la la-cart-arrow-down"></i>Orders</a>
         </li>
         <li><a href="javascript:;" class="waves-effect waves-primary"><i class="la la-wechat"></i>Messages</a></li>
@@ -232,8 +222,7 @@
                     <a href="" class="nav-link-profile d-flex dropdown-toggle" data-toggle="dropdown"
                         id="dropdownprofile">
                         <img src="./assets/images/AdminImage/img3.jpg" class="rounded" alt="" width="50">
-                        <span class="logged-name px-3">                          {{username}}
-                          <br><small class="pt-3">Admin</small></span>
+                        <span class="logged-name px-3">Zahir Patel <br><small class="pt-3">Founder</small></span>
                         <i class="profile-dropdown la la-caret-square-o-down"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-header dropdown-menu-user"

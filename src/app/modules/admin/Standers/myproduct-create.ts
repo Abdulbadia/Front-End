@@ -1,5 +1,4 @@
 export class MyproductCreate {
-
     id?: number;
     name: string;
     image: string;

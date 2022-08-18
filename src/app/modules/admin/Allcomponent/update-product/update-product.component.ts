@@ -34,8 +34,10 @@ export class UpdateProductComponent implements OnInit {
   goBack(): void {
     this._Location.back();
   }
-
   save(id:number): void {
+    this.product.brandID = Number(this.product.brandID);
+    this.product.categoryId = Number(this.product.categoryId);
+    this.product.availability ? (this.product.availability = true) : (this.product.availability = false)
     this.ser.Edit_product_edit(id, this.product).subscribe(product => this.goBack())
   }
   get_AllBrandIds() {

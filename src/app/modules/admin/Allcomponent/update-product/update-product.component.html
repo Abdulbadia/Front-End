@@ -1,3 +1,6 @@
+<div>
+    {{product|json}}
+</div>
 <form #prdFrom="ngForm" (ngSubmit)="save(product.id)">
     <div class="form-row">
         <div class="form-group col-md-10">
@@ -49,8 +52,8 @@
             <label for="Availability">Product Availability</label>
             <select id="Availability" class="form-control" name="Availability" [(ngModel)]="product.availability">
                 <option [value]="product.availability">{{product.availability}}</option>
-                <option> True</option>
-                <option> False</option>
+                <option [value]="true"> available</option>
+                <option [value]="false"> not available</option>
             </select>
         </div>
     </div>
@@ -63,7 +66,3 @@
     <br>
     <br>
 </form>
-
-<!-- <div>
-    {{product|json}}
-</div> -->
