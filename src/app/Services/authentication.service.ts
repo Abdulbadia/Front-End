@@ -49,6 +49,7 @@ logout(){
   this.type="user";
   this.isLoggedSubject.next(false);
 
+localStorage.removeItem('fullname');
 localStorage.removeItem('token');
 }
 get isUserLogged():boolean
