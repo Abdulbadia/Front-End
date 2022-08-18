@@ -37,7 +37,17 @@
 <div class="br-sideleft">
     <a id="remove-menu" class="la la-close d-xl-none"></a>
     <div class="br-logo d-flex justify-content-center align-items-center">
-        <a href="index.html"><img src="./assets/images/AdminImage/logo.png" alt="MS Admin Panel" width="80" /></a>
+        <!-- <a href="index.html"><img src="./assets/images/AdminImage/logo.png" alt="MS Admin Panel" width="80" /></a> -->
+        <a class="nav-link fw-bolder  py-lg-4"  role="button"[routerLink]="['']" >
+          <div class="d-flex align-items-center">
+                            <div class="f-w-6 d-flex align-items-center me-2 lh-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 194 194"><path fill="currentColor" class="svg-logo-white" d="M47.45,60l1.36,27.58,53.41-51.66,50.87,50,3.84-26L194,100.65V31.94A31.94,31.94,0,0,0,162.06,0H31.94A31.94,31.94,0,0,0,0,31.94v82.57Z"/><path fill="currentColor" class="svg-logo-dark" d="M178.8,113.19l1,34.41L116.3,85.92l-14.12,15.9L88.07,85.92,24.58,147.53l.93-34.41L0,134.86v27.2A31.94,31.94,0,0,0,31.94,194H162.06A31.94,31.94,0,0,0,194,162.06V125.83Z"/></svg>
+                            </div>
+                             <span class="fs-5">
+                              Alpine
+                            </span>
+            </div>
+        </a>
     </div>
     <ul class="custom-scroll">
         <li class="active">
@@ -222,7 +232,8 @@
                     <a href="" class="nav-link-profile d-flex dropdown-toggle" data-toggle="dropdown"
                         id="dropdownprofile">
                         <img src="./assets/images/AdminImage/img3.jpg" class="rounded" alt="" width="50">
-                        <span class="logged-name px-3">Zahir Patel <br><small class="pt-3">Founder</small></span>
+                        <span class="logged-name px-3">                          {{username}}
+                          <br><small class="pt-3">Admin</small></span>
                         <i class="profile-dropdown la la-caret-square-o-down"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-header dropdown-menu-user"

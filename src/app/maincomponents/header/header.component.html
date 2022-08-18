@@ -31,7 +31,7 @@
                       </button>
                       <!-- / Mobile Nav Toggler-->
 
-                      <ul class="navbar-nav py-lg-2 mx-auto">
+                      <ul class="navbar-nav py-lg-2 mx-auto" style=" font-size: 20px!important;">
                           <li class="nav-item me-lg-4  position-static">
                               <a class="nav-link fw-bolder  py-lg-4"  role="button"[routerLink]="['']" >
                                   Home
@@ -95,7 +95,7 @@
                     <li class="ms-1 d-none d-lg-inline-block" [ngClass]="this.isUserLogged?'d-lg-inline-block':'d-lg-none'">
                       <div class="btn btn-link px-2 text-decoration-none d-flex align-items-center" style="cursor:initial">
                           <!-- <i class="ri-user-line ri-lg align-middle"></i> -->
-                          ahmed
+                          {{username}}
                       </div>
                   </li>
                       <!-- Navbar Wishlist-->

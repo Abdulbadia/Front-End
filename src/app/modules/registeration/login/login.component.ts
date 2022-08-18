@@ -39,6 +39,7 @@ const observer={
     console.log(respond);
     console.log(respond.token);
     localStorage.setItem("token",respond.token);
+    localStorage.setItem("fullname",respond.fullname);
     alert(`login successfully as ${respond.type}`);
     this.AuthenticationService.setType(respond.type);
     respond.type=="admin"?this.router.navigate(["Admin/products"]):this.router.navigate([""])

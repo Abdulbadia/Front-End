@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit,AfterViewInit {
 @Output() childEvent=new EventEmitter();
 @ViewChild('navv') el: ElementRef ;
 isUserLogged:boolean=this.AuthenticationService.isUserLogged;
+username:string=localStorage.getItem('fullname');
   constructor( private AuthenticationService:AuthenticationService,private router :Router) {
     console.log(this.isUserLogged);
     this.AuthenticationService.getLoggedStatus().subscribe(status=>{

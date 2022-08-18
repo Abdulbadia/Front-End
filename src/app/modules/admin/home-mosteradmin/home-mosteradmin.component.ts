@@ -11,8 +11,11 @@ import { Component, OnInit } from '@angular/core';
     '../assets/css/bootstrap-slider.css']
 })
 export class HomeMosteradminComponent implements OnInit {
+  username:string;
 
-  constructor() { }
+  constructor() {
+    this.username=localStorage.getItem('fullname');
+   }
 
   ngOnInit(): void {
   }
