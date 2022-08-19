@@ -13,20 +13,20 @@ export class CategoriesApiService {
 
 
   get_AllCata(): Observable<Categories[]> {
-    return this.http.get<Categories[]>(`${environment.URL}/Categories`).pipe(
+    return this.http.get<Categories[]>(`${environment.URL}/Category`).pipe(
       retry(2),
       catchError(err => { throw new Error(err) }))
   }
 
   add_Categories(body: Categories): Observable<Categories> {
-    return this.http.post<Categories>(`${environment.URL}/Categories`, body, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2), catchError(this.handleError))
+    return this.http.post<Categories>(`${environment.URL}/Category`, body, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2), catchError(this.handleError))
   }
 
   Delete_Categories(id): Observable<Categories> {
-    return this.http.delete<Categories>(`${environment.URL}/Categories/${id}`, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2), catchError(this.handleError))
+    return this.http.delete<Categories>(`${environment.URL}/Category/${id}`, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2), catchError(this.handleError))
   }
   UpdateCategory(id, body: Categories): Observable<Categories> {
-    return this.http.put<Categories>(`${environment.URL}/Categories/${id}`, body, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2), catchError(this.handleError))
+    return this.http.put<Categories>(`${environment.URL}/Category/${id}`, body, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2), catchError(this.handleError))
   }
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {

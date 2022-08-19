@@ -16,8 +16,8 @@ export class ProductAdminComponent implements OnInit {
   }
 
   displayedColumns: string[] =
-    ['productId', 'productName',
-      'price', 'availability', 'brandName', 'discountPercentage', 'quantity', 'Action'];
+    ['id', 'name',
+      'price', 'availability', 'brand', 'discountPercentage', 'quantity', 'Action'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 

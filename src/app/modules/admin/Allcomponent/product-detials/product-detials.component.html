@@ -4,19 +4,20 @@
             <div class="col-md-8 col-lg-6 col-xl-4">
                 <div class="card text-black">
                     <i class="fab fa-apple fa-lg pt-3 pb-1 px-3"></i>
-                    <img src="https://m.media-amazon.com/images/I/31LUdD5l2gL._AC_.jpg" alt="" class="card-img-top"
-                        alt="Apple Computer" />
+                    <img src="https://m.media-amazon.com/images/I/51ZpUSrig5S._AC_SX569_.jpg" alt=""
+                        class="card-img-top" alt="Apple Computer" />
                     <div class="card-body">
                         <div class="text-center">
-                            <h5 class="card-title fs-4">{{Cratproduct.productName}}</h5>
-                            <p class="text-muted mb-4 fs-4">{{Cratproduct.description}}</p>
+                            <h5 class="card-title fs-4 pt-2">{{Cratproduct.name}}</h5>
+                            <p class="text-muted mb-4 fs-4 pt-2">{{Cratproduct.description}}</p>
                         </div>
                         <div>
-                            <div class="d-flex justify-content-between  fs-4">
+                            <div class="d-flex justify-content-between  fs-4 pt-2">
                                 <span>Price</span> <span>{{Cratproduct.price| currency:'EGP ':true }}</span>
                             </div>
                             <div class="d-flex justify-content-between fs-4 pt-2">
-                                <span>Discount</span> <span>{{Cratproduct.discountPercentage|percent}}</span>
+                                <span class="pt-2">Discount</span>
+                                <span>{{Cratproduct.discountPercentage|percent}}</span>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between total font-weight-bold mt-4 fs-4">
@@ -25,11 +26,9 @@
                         </div>
                         <div class="d-flex justify-content-between total font-weight-bold mt-4 fs-4">
                             <span>Total</span><span>{{TotalPrice()}}</span>
-
                         </div>
                     </div>
                     <button mat-flat-button color="primary" (click)="Myback()">Back</button>
-
                 </div>
             </div>
         </div>

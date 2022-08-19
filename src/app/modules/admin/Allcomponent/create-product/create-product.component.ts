@@ -20,9 +20,7 @@ export class CreatePRoductComponent implements OnInit {
   product: IProduct = {} as IProduct;
   Categorie: Categories[] = [];
   Brand: IBrand[] = [];
-
   ngOnInit(): void {
-
     this.get_Categories();
     this.get_AllBrandIds();
   }
@@ -31,13 +29,19 @@ export class CreatePRoductComponent implements OnInit {
     {
       next: (product: IProduct) => {
         alert("product Success!");
-        console.log(product)
         this._router.navigateByUrl('/Admin/products');
       },
-      error: (error: Error) => { console.log(error) }
+      error: (error: Error) => { console.log(error); }
     }
+    this.product.brandID = Number(this.product.brandID);
+    this.product.categoryId = Number(this.product.categoryId);
+    this.product.availability ? (this.product.availability = true) : (this.product.availability = false)
+    console.log(this.product);
     return this.api_Ser.Create_product(this.product).subscribe(Myobservable);
   }
+
+
+
 
   get_Categories() {
     return this.Cat_Api.get_AllCata().subscribe(data => {
@@ -48,6 +52,8 @@ export class CreatePRoductComponent implements OnInit {
   get_AllBrandIds() {
     return this.Bra_APi.get_AllBrandIds().subscribe(data => {
       this.Brand = data;
+
+      console.log(this.Brand);
     })
   }
 
@@ -59,3 +65,35 @@ export class CreatePRoductComponent implements OnInit {
 
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // addproducttest() {
+  //   const myproduct: MyproductCreate = {
+  //     name: 'dsdsds',
+  //     price: 20,
+  //     quantity: 20,
+  //     availability: true,
+  //     discountPercentage: 0.1,
+  //     brandID: 1,
+  //     categoryId: 1,
+  //     image: "",
+  //     description: ""
+  //   }
+
+  //   return this.api_Ser.Create_product(myproduct).subscribe(data => {
+  //     alert(data);
+  //   })
+  // }

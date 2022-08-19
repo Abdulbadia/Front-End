@@ -9,21 +9,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit,AfterViewInit {
-
 @Output() childEvent=new EventEmitter();
 @ViewChild('navv') el: ElementRef ;
-isUserLogged:boolean=this.AuthenticationService.isUserLogged;
-username:string=localStorage.getItem('fullname');
-  constructor( private AuthenticationService:AuthenticationService,private router :Router) {
-    console.log(this.isUserLogged);
-    this.AuthenticationService.getLoggedStatus().subscribe(status=>{
-      this.isUserLogged=status;}
-      )}
+  constructor(private AuthenticationService:AuthenticationService,private router :Router) { }
 
+  loginshowandhide={"d-lg-none":this.AuthenticationService.isUserLogged,
+  "d-lg-inline-block":!(this.AuthenticationService.isUserLogged)
+}
+
+logoutshowandhide={"d-lg-none":!(this.AuthenticationService.isUserLogged),
+"d-lg-inline-block":this.AuthenticationService.isUserLogged
+}
 logout(){
-  console.log(this.isUserLogged);
+  console.log(this.AuthenticationService.isUserLogged);
   this.AuthenticationService.logout();
   this.router.navigate(['']);
+
 }
   ngAfterViewInit(): void {
     this.childEvent.emit(this.el);

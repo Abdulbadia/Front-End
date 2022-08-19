@@ -13,8 +13,8 @@ import { AuthenticationService } from '../../../Services/authentication.service'
     '../assets/css/bootstrap-slider.css']
 })
 export class HomeMosteradminComponent implements OnInit {
-  username:string;
 
+username:string;
   constructor(private AuthenticationService:AuthenticationService,private router:Router) {
     this.username=localStorage.getItem('fullname');
    }
