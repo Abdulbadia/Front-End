@@ -36,12 +36,17 @@ userRegfrm:FormGroup;
 let respond:Irespond;
 const observer={
   next:(respond)=>{
+    console.log(respond);
     console.log(respond.token);
     localStorage.setItem("token",respond.token);
+    localStorage.setItem("fullname",respond.fullname);
     alert(`login successfully as ${respond.type}`);
+    this.AuthenticationService.setType(respond.type);
     respond.type=="admin"?this.router.navigate(["Admin/products"]):this.router.navigate([""])
   },
-  error:(err:Error)=>{err.message}
+  error:(err:Error)=>{
+    alert(`something wrong happened`);
+    err.message}
   }
   this.AuthenticationService.Login(user).subscribe(observer);
 

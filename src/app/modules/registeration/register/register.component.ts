@@ -22,6 +22,8 @@ export class RegisterComponent implements OnInit {
       address:fb.group({governorat:['',Validators.required],city:['',Validators.required],street:['',Validators.required]}),
       username:['',[Validators.required,Validators.pattern('^[a-zA-Z0-9]+@([a-zA-Z]+)\.(com|net|org|co)')]],
       password:['',[Validators.required,Validators.pattern('(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,}')]],
+      image:"",
+      type:"admin",
       // (?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}
       confirmpassword:['',[Validators.required]]
     },{validators:[passwordmatch]})
@@ -63,13 +65,16 @@ submit(){
   address:`${this.governorat.value},${this.city.value},${this.street.value}`,
   email:this.username.value,
   password:this.password.value,
-  image:""
+  image:"",
+  type:"user"
   }
 const observer={
 next:()=>{alert("Account Added Successfully");
 this.router.navigate(["Auth/Login"])
 },
-error:(err:Error)=>{err.message}
+error:(err:Error)=>{
+  alert("Something wrong happened");
+  err.message}
 }
 this.AuthenticationService.register(user).subscribe(observer);
 }
