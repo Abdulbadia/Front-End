@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../../../Services/authentication.service';
 
 @Component({
   selector: 'app-home-mosteradmin',
@@ -13,10 +15,13 @@ import { Component, OnInit } from '@angular/core';
 export class HomeMosteradminComponent implements OnInit {
   username:string;
 
-  constructor() {
+  constructor(private AuthenticationService:AuthenticationService,private router:Router) {
     this.username=localStorage.getItem('fullname');
    }
-
+   signOut(){
+  this.AuthenticationService.logout();
+  this.router.navigate(['']);
+}
   ngOnInit(): void {
   }
 

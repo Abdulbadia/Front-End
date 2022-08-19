@@ -47,7 +47,7 @@
         <button [disabled]="userRegfrm.invalid" type="submit" (click)="submit()" class="btn btn-dark d-block w-100 my-4">تسجيل
           الدخول</button>
       </form>
-      <p class="d-block text-center text-muted">عميل جديد؟ <a class="text-muted" href="./register.html"> قم بانشاء حساب
+      <p class="d-block text-center text-muted">عميل جديد؟ <a class="text-muted" [routerLink]="['/Auth/Register']" > قم بانشاء حساب
           خاص بك</a></p>
     </div>
 

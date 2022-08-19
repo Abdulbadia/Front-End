@@ -213,7 +213,7 @@
                                     <img src="" width="50" class="rounded-circle" alt="">
                                     <div class="media-body pl-3">
                                         <div class="d-flex align-items-center justify-content-between mb-1">
-                                            <strong>Zahir Patel</strong>
+                                            <strong> {{username}}</strong>
                                         </div>
                                         <!-- d-flex -->
                                         <p class="mb-0">A wonderful serenity has taken possession.</p>
@@ -232,16 +232,18 @@
                     <a href="" class="nav-link-profile d-flex dropdown-toggle" data-toggle="dropdown"
                         id="dropdownprofile">
                         <img src="./assets/images/AdminImage/img3.jpg" class="rounded" alt="" width="50">
-                        <span class="logged-name px-3">                          {{username}}
-                          <br><small class="pt-3">Admin</small></span>
+                        <span class="logged-name px-3">
+                        {{username}}
+                          <br><small class="pt-3">Admin</small>
+                        </span>
                         <i class="profile-dropdown la la-caret-square-o-down"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-header dropdown-menu-user"
                         aria-labelledby="dropdownprofile">
                         <div class="text-center">
                             <a href=""><img src="" width="80" class="rounded-circle" alt=""></a>
-                            <h6 class="logged-fullname font-weight-bold mt-2">Zahir Patel</h6>
-                            <p class="my-0">youremail@domain.com</p>
+                            <h6 class="logged-fullname font-weight-bold mt-2"> {{username}}</h6>
+                            <!-- <p class="my-0">youremail@domain.com</p> -->
                         </div>
                         <hr>
                         <ul class="list-unstyled user-profile-nav">
@@ -255,8 +257,9 @@
                                     Favorites</a></li>
                             <li><a href="javascript:;" class=" waves-effect waves-light"><i class="la la-file"></i>
                                     Collections</a></li>
-                            <li><a href="javascript:;" class=" waves-effect waves-light"><i class="la la-power-off"></i>
-                                    Sign Out</a></li>
+                            <li (click)="signOut()"><a href="javascript:;" class=" waves-effect waves-light"><i class="la la-power-off"></i>
+                                    Sign Out</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- dropdown-menu -->
