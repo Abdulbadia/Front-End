@@ -7,13 +7,15 @@ import { CategoryComponent } from './user/category/category.component';
 import { ProductComponent } from './user/product/product.component';
 import { PageNotFoundComponent } from './maincomponents/page-not-found/page-not-found.component';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
+import { AboutComponent } from './user/about/about.component';
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'Home',component:HomeComponent},
   {path:'user',component:UserComponent,children:[
     {path:'cart',component:CartComponent},
     {path:'category',component:CategoryComponent},
-    {path:'Product',component:ProductComponent}
+    {path:'Product',component:ProductComponent},
+    {path:'about',component:AboutComponent}
 
   ]}
 // ,

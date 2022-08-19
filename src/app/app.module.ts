@@ -17,6 +17,7 @@ import { SharedfilesModule } from './Sharedfiles/sharedfiles/sharedfiles.module'
 import { ProductComponent } from './user/product/product.component';
 //import { CartitmesComponent } from './user/cart/cartitmes/cartitmes.component';
 import { CartitemsComponent } from './user/cart/cartitems/cartitems.component';
+import { AboutComponent } from './user/about/about.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { CartitemsComponent } from './user/cart/cartitems/cartitems.component';
     PageNotFoundComponent,
    // CartitmesComponent,
     CartitemsComponent,
-
+    AboutComponent
   ],
   imports: [
     BrowserModule,
