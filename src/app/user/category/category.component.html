@@ -50,77 +50,54 @@
                           <!-- / Price Filter -->
 
                               <!-- Brands Filter -->
-                              <div class="py-4 widget-filter border-top">
-                                  <a class="small text-body text-decoration-none text-secondary-hover transition-all transition-all fs-6 fw-bolder d-block collapse-icon-chevron"
+                              <div class="py-4 widget-filter border-top" style="direction: rtl;font-family:Cairo">
+                                  <a class="small text-body text-decoration-none text-secondary-hover transition-all transition-all fs-6 fw-bolder d-block "
                                       data-bs-toggle="collapse" href="#filter-brands" role="button" aria-expanded="true"
                                       aria-controls="filter-brands">
-                                      Brands
+                                      الاصناف
                                   </a>
                                   <div id="filter-brands" class="collapse show">
-                                      <div class="input-group my-3 py-1">
-                                          <input type="text" class="form-control py-2 filter-search rounded" placeholder="Search" aria-label="Search">
-                                          <span class="input-group-text bg-transparent px-2 position-absolute top-7 end-0 border-0 z-index-20"><i class="ri-search-2-line text-muted"></i></span>
+                                      <div class="input-group my-3 py-1" style="direction:ltr">
+                                        <input type="text" class="form-control py-2 filter-search rounded" placeholder="بحث" aria-label="Search">
+                                        <span class="input-group-text bg-transparent px-2 position-absolute top-7 end-0 border-0 z-index-20"><i class="ri-search-2-line text-muted"></i></span>
                                       </div>
                                       <div class="simplebar-wrapper">
                                           <div class="filter-options" data-pixr-simplebar>
-                                                  <div class="form-group form-check mb-0">
-                                                      <input type="checkbox" class="form-check-input" id="filter-brand-0">
+                                                <div class="form-group form-check mb-0">
+                                                  <form #userForm="ngForm">
+                                                    <input type="radio" name="flexRadioDefault" ngModel [(ngModel)]="category" value="كل الاصناف" class="form-check-input" id="filter-brand-0" checked>
                                                       <label class="form-check-label fw-normal text-body flex-grow-1 d-flex justify-content-between"
-                                                          for="filter-brand-0">Adidas  <span
-                                                              class="text-muted">(21)</span></label>
-                                                  </div>                            <div class="form-group form-check mb-0">
-                                                      <input type="checkbox" class="form-check-input" id="filter-brand-1">
+                                                          for="filter-brand-0"> كل الاصناف
+                                                      </label>
+                                                      <input type="radio" name="flexRadioDefault" value="عناية شخصية" ngModel [(ngModel)]="category" class="form-check-input" id="filter-brand-0">
                                                       <label class="form-check-label fw-normal text-body flex-grow-1 d-flex justify-content-between"
-                                                          for="filter-brand-1">Asics  <span
-                                                              class="text-muted">(13)</span></label>
-                                                  </div>                            <div class="form-group form-check mb-0">
-                                                      <input type="checkbox" class="form-check-input" id="filter-brand-2">
+                                                          for="filter-brand-0">عناية شخصية
+                                                      </label>
+
+                                                      <input type="radio"name="flexRadioDefault" value="مستلزمات المنزل" ngModel [(ngModel)]="category" class="form-check-input" id="filter-brand-1">
                                                       <label class="form-check-label fw-normal text-body flex-grow-1 d-flex justify-content-between"
-                                                          for="filter-brand-2">Canterbury  <span
-                                                              class="text-muted">(18)</span></label>
-                                                  </div>                            <div class="form-group form-check mb-0">
-                                                      <input type="checkbox" class="form-check-input" id="filter-brand-3">
+                                                          for="filter-brand-1">مستلزمات المنزل
+                                                      </label>
+                                                      <input type="radio"name="flexRadioDefault" value="اكسسوارات المطبخ" ngModel [(ngModel)]="category" class="form-check-input" id="filter-brand-2">
                                                       <label class="form-check-label fw-normal text-body flex-grow-1 d-flex justify-content-between"
-                                                          for="filter-brand-3">Converse  <span
-                                                              class="text-muted">(25)</span></label>
-                                                  </div>                            <div class="form-group form-check mb-0">
-                                                      <input type="checkbox" class="form-check-input" id="filter-brand-4">
+                                                          for="filter-brand-2">اكسسوارات المطبخ
+                                                      </label>
+                                                      <input type="radio"name="flexRadioDefault" value="اكسسوارات الحمام" ngModel [(ngModel)]="category" class="form-check-input" id="filter-brand-3">
                                                       <label class="form-check-label fw-normal text-body flex-grow-1 d-flex justify-content-between"
-                                                          for="filter-brand-4">Donnay  <span
-                                                              class="text-muted">(11)</span></label>
-                                                  </div>                            <div class="form-group form-check mb-0">
-                                                      <input type="checkbox" class="form-check-input" id="filter-brand-5">
-                                                      <label class="form-check-label fw-normal text-body flex-grow-1 d-flex justify-content-between"
-                                                          for="filter-brand-5">Nike  <span
-                                                              class="text-muted">(19)</span></label>
-                                                  </div>                            <div class="form-group form-check mb-0">
-                                                      <input type="checkbox" class="form-check-input" id="filter-brand-6">
-                                                      <label class="form-check-label fw-normal text-body flex-grow-1 d-flex justify-content-between"
-                                                          for="filter-brand-6">Millet  <span
-                                                              class="text-muted">(24)</span></label>
-                                                  </div>                            <div class="form-group form-check mb-0">
-                                                      <input type="checkbox" class="form-check-input" id="filter-brand-7">
-                                                      <label class="form-check-label fw-normal text-body flex-grow-1 d-flex justify-content-between"
-                                                          for="filter-brand-7">Puma  <span
-                                                              class="text-muted">(11)</span></label>
-                                                  </div>                            <div class="form-group form-check mb-0">
-                                                      <input type="checkbox" class="form-check-input" id="filter-brand-8">
-                                                      <label class="form-check-label fw-normal text-body flex-grow-1 d-flex justify-content-between"
-                                                          for="filter-brand-8">Reebok  <span
-                                                              class="text-muted">(19)</span></label>
-                                                  </div>                            <div class="form-group form-check mb-0">
-                                                      <input type="checkbox" class="form-check-input" id="filter-brand-9">
-                                                      <label class="form-check-label fw-normal text-body flex-grow-1 d-flex justify-content-between"
-                                                          for="filter-brand-9">Under Armour  <span
-                                                              class="text-muted">(24)</span></label>
-                                                  </div>                    </div>
+                                                          for="filter-brand-3">اكسسوارات الحمام
+                                                      </label>
+                                                      {{userForm.value|json}}
+                                                      <!-- {{userModel|json}} -->
+                                                  </form>
+                                                </div>
+                                            </div>
                                       </div>
                                   </div>
                               </div>
                               <!-- / Brands Filter -->
 
                               <!-- Type Filter -->
-                              <div class="py-4 widget-filter border-top">
+                              <!-- <div class="py-4 widget-filter border-top"style="direction: rtl;">
                                   <a class="small text-body text-decoration-none text-secondary-hover transition-all transition-all fs-6 fw-bolder d-block collapse-icon-chevron"
                                       data-bs-toggle="collapse" href="#filter-type" role="button" aria-expanded="true"
                                       aria-controls="filter-type">
@@ -158,7 +135,7 @@
                                                       for="filter-type-5">Click </label>
                                               </div>                </div>
                                   </div>
-                              </div>
+                              </div> -->
                               <!-- / Type Filter -->
 
 
@@ -214,6 +191,7 @@
                   <div class="row g-4 mb-5" >
 
                               <div  class="col-12 col-sm-6 col-md-4" *ngFor="let product of products">
+                                <ng-container *ngIf="category=='كل الاصناف'||category==product.category">
                                   <!-- Card Product-->
                                   <div class="card position-relative h-100 card-listing hover-trigger">
                                     <span class="badge card-badge bg-secondary">-{{(product.discountPercentage)*100}}%</span>
@@ -237,7 +215,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <!--/ Card Product-->
+                                </ng-container>  <!--/ Card Product-->
                               </div>
 
                   </div>

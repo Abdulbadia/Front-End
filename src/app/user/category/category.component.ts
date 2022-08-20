@@ -10,8 +10,9 @@ import { IProduct } from '../../modules/admin/Standers/iproduct';
 })
 export class CategoryComponent implements OnInit {
 products:IProduct[];
+category:string;
   constructor(private Ser:ProductAPiService,private router:Router) {
-
+this.category="كل الاصناف";
 
 
     const observer={
