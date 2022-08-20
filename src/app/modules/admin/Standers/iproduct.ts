@@ -2,12 +2,12 @@
 export interface IProduct {
     id?: number;
     name: string;
-    imageSrc: string;
-    imageFile: File;
+    image?:string;
+    brand?:string;
     description: string;
     category: string;
     categoryId: number;
-    brandName: string;
+    brandName?: string;
     price: number;
     quantity: number;
     brandID: number;

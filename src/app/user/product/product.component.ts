@@ -23,7 +23,7 @@ export class ProductComponent implements OnInit {
     quantity: 0,
     brandID: 0,
     availability: false,
-    discountPercentage: 0
+    discountPercentage: 0,
   }
   @Input() data:any={}
   token:string;
@@ -61,8 +61,8 @@ export class ProductComponent implements OnInit {
             alert(`something wrong happened`);
             err.message}
         }
-    this.addcartser.addtocart(this.itemstoadd).subscribe(itemstoaddobserver);
-    console.log(localStorage.getItem('token'));
+        this.addcartser.addtocart(this.itemstoadd).subscribe(itemstoaddobserver);
+        console.log(localStorage.getItem('token'));
   }
     else{
       alert(`you should login first`);

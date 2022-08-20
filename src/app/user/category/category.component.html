@@ -196,8 +196,9 @@
                   <!-- Products-->
                   <div class="row g-4 mb-5" >
 
-                              <div  class="col-12 col-sm-6 col-md-4" *ngFor="let product of products" style="cursor:pointer"(click)="goToDetails(product.id)">
+                              <ng-container   *ngFor="let product of products" >
                                 <ng-container *ngIf="category=='كل الاصناف'||category==product.category">
+                                <div class="col-12 col-sm-6 col-md-4"style="cursor:pointer"(click)="goToDetails(product.id)">
                                   <!-- Card Product-->
                                   <div class="card position-relative h-100 card-listing hover-trigger">
                                     <span class="badge card-badge bg-secondary">-{{(product.discountPercentage)*100}}%</span>
@@ -221,8 +222,9 @@
                                       </div>
                                     </div>
                                   </div>
-                                </ng-container>  <!--/ Card Product-->
-                              </div>
+                                </div> <!--/ Card Product-->
+                              </ng-container>
+                              </ng-container>
 
                   </div>
                   <!-- / Products-->

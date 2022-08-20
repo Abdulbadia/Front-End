@@ -68,4 +68,7 @@ setType(type:string){
 
     return this.isLoggedSubject.asObservable();
   }
+  checkBEAdmin(token:string){
+
+  }
 }

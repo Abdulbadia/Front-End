@@ -9,7 +9,7 @@ import { PageNotFoundComponent } from './maincomponents/page-not-found/page-not-
 import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { AboutComponent } from './user/about/about.component';
 const routes: Routes = [
-<<<<<<< Updated upstream
+
   {path:'',component:HomeComponent},
   {path:'Home',component:HomeComponent},
   {path:'user',component:UserComponent,children:[
@@ -17,15 +17,7 @@ const routes: Routes = [
     {path:'Products',component:CategoryComponent},
     {path:'Products/:id',component:ProductComponent},
     {path:'about',component:AboutComponent}
-=======
-  { path: '', component: HomeComponent },
-  { path: 'Home', component: HomeComponent },
-  {
-    path: 'user', component: UserComponent, children: [
-      { path: 'cart', component: CartComponent },
-      { path: 'category', component: CategoryComponent },
-      { path: 'Product', component: ProductComponent }
->>>>>>> Stashed changes
+
 
     ]
   }
