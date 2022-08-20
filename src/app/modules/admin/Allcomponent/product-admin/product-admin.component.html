@@ -1,50 +1,7 @@
-<!-- <br>
-
-<div class="main-content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class=" text-primary">
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    price
-                                </th>
-                                <th>
-                                    Descrption
-                                </th>
-                                <th>
-                                    availability
-                                </th>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let item of dataSource">
-
-                                    <td>
-                                        {{item.name}}
-                                    </td>
-                                    <td class="text-primary">
-                                        {{item.price}}
-                                    </td>
-                                    <td>
-                                        {{item.description}}
-                                    </td>
-                                    <td class="text-primary">
-                                        {{item.availability}}
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 <a mat-flat-button color="primary" class="text-center" routerLink="../Creat">add</a>
+<br>
+<br>
+
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="id">
@@ -79,9 +36,9 @@
             <th mat-header-cell *matHeaderCellDef> Discount </th>
             <td mat-cell *matCellDef="let element"> {{element.discountPercentage|percent}} </td>
         </ng-container>
-        <ng-container matColumnDef="brand">
+        <ng-container matColumnDef="brandName">
             <th mat-header-cell *matHeaderCellDef> BrandName </th>
-            <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.brandName}} </td>
         </ng-container>
         <ng-container matColumnDef="quantity">
             <th mat-header-cell *matHeaderCellDef> Quantity </th>

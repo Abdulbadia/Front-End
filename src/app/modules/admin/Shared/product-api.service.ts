@@ -24,14 +24,17 @@ export class ProductAPiService {
       .pipe(retry(3),
         catchError(this.handleError))
   }
-  Create_product(body: IProduct): Observable<IProduct> {
-    return this.http.post<IProduct>(`${environment.URL}/Product`, JSON.stringify(body),
-      { headers: { 'Content-Type': 'application/json' } })
-      .pipe(retry(2),
-        catchError(this.handleError),
+  // Create_product(body: IProduct): Observable<IProduct> {
+  //   return this.http.post<IProduct>(`${environment.URL}/Product`, JSON.stringify(body), { headers: { 'Content-Type': 'application/json' } })
+  //     .pipe(retry(2),
+  //       catchError(this.handleError),
 
-      )
+  //     )
 
+  // }
+
+  Create_product(FormData: FormData) {
+    return this.http.post(`${environment.URL}/Product`, FormData).pipe(retry(2), catchError(this.handleError))
   }
   Edit_product_edit(pid: number, product: IProduct): Observable<IProduct> {
     return this.http.put<IProduct>(`${environment.URL}/Product/${pid}`, product,

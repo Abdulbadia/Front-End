@@ -16,6 +16,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { UserDetailesComponent } from './Customer/user-detailes/user-detailes.component';
+import { EditeUsersComponent } from './Customer/edite-users/edite-users.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 const routes: Routes =
   [
@@ -42,6 +46,9 @@ const routes: Routes =
     UsersComponent,
     AllOrdersComponent,
     HomeMosteradminComponent,
+    UserDetailesComponent,
+    EditeUsersComponent
+
   ],
   imports: [
     CommonModule,
@@ -52,8 +59,9 @@ const routes: Routes =
     MatPaginatorModule,
     MatIconModule,
     MatMenuModule,
-
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ]
 })
 export class AdminModule { }
+

@@ -15,7 +15,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { SharedfilesModule } from './Sharedfiles/sharedfiles/sharedfiles.module';
 import { ProductComponent } from './user/product/product.component';
-//import { CartitmesComponent } from './user/cart/cartitmes/cartitmes.component';
 import { CartitemsComponent } from './user/cart/cartitems/cartitems.component';
 import { AboutComponent } from './user/about/about.component';
 
@@ -30,7 +29,6 @@ import { AboutComponent } from './user/about/about.component';
     ProductComponent,
     UserComponent,
     PageNotFoundComponent,
-   // CartitmesComponent,
     CartitemsComponent,
     AboutComponent
   ],

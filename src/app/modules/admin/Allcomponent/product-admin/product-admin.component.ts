@@ -17,7 +17,7 @@ export class ProductAdminComponent implements OnInit {
 
   displayedColumns: string[] =
     ['id', 'name',
-      'price', 'availability', 'brand', 'discountPercentage', 'quantity', 'Action'];
+      'price', 'availability', 'brandName', 'discountPercentage', 'quantity', 'Action'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -29,8 +29,11 @@ export class ProductAdminComponent implements OnInit {
 
   getProducser() {
     return this.Ser.get_AllProduct().subscribe(data => {
+      console.log(data);
       this.dataSource = new MatTableDataSource<IProduct>(data);
+      console.log(this.dataSource);
       this.dataSource.paginator = this.paginator;
+
     }
     )
 

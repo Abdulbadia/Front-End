@@ -18,7 +18,7 @@ export class UpdateProductComponent implements OnInit {
   constructor(private ser: ProductAPiService, private router: Router,
     private Active: ActivatedRoute, private _Catalog: CategoriesApiService, private _Braid: ApiBrandService, private _Location: Location) { }
   Brand: IBrand[];
-   Categorie: Categories[];
+  Categorie: Categories[];
   product!: IProduct;
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class UpdateProductComponent implements OnInit {
   goBack(): void {
     this._Location.back();
   }
-  save(id:number): void {
+  save(id: number): void {
     this.product.brandID = Number(this.product.brandID);
     this.product.categoryId = Number(this.product.categoryId);
     this.product.availability ? (this.product.availability = true) : (this.product.availability = false)
@@ -49,26 +49,10 @@ export class UpdateProductComponent implements OnInit {
     return this._Catalog.get_AllCata().subscribe(data => {
       this.Categorie = data;
     })
-   }
+  }
 }
 
 
 
 
-  // get_ProductbyID(id: number) {
-  //   return this.ser.get_productByID(id).subscribe(data => {
-  //     this.product = data;
-  //   })
-  // }
-  
 
-
-  // Updata_product() {
-  //   return this.ser.Edit_product_edit(this.id, this.body).subscribe(data => {
-  //     console.log(data);
-  //   })
-  // }
-
-    //   this.get_ProductbyID(this.id);
-    //   this.get_AllCata();
-    //   this.get_AllBrandIds();

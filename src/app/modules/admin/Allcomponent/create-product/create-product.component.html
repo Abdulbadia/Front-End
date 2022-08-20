@@ -1,4 +1,4 @@
-<form #prdFrom="ngForm" (ngSubmit)="addproduct()">
+<!-- <form #prdFrom="ngForm" (ngSubmit)="addproduct()" enctype="multipart/form-data" method="post">
     <div class="form-row">
         <div class="form-group col-md-10">
             <label for="PrdName">ProductName</label>
@@ -40,7 +40,8 @@
     <div class="form-row">
         <div class="form-group col-md-10">
             <label for="image">Product image</label>
-            <input type="file" class="form-control" id="image" [(ngModel)]="product.image" name="product.image">
+            <input type="file" multiple class="form-control" id="image" [(ngModel)]="product.imageFile"
+                name="product.image" (change)="onfileSelected($event)">
         </div>
         <div class="form-group col-md-10">
             <label for="Brands">Product Brands</label>
@@ -71,4 +72,147 @@
     <button mat-flat-button color="primary" class="h-25" [disabled]="prdFrom.invalid" type="submit">Add</button>
     <br>
     <br>
-</form>
+</form> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<div class="container">
+    <form [formGroup]="FormProduct" (ngSubmit)="submitForm()" enctype="multipart/form-data">
+        <div class=" form-group col-md-10">
+            <label for="prdName">Product Name</label>
+            <input class="form-control" id="prdName" type="text" placeholder="Name" formControlName="name">
+            <div class="alert alert-warning" [hidden]="name?.valid||name?.untouched">
+                <small *ngIf="name?.errors?.['required']">
+                    productName is not required
+                </small>
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label for="Descrption">Product Descrption</label>
+            <textarea class="form-control" id="Descrption" placeholder="Descrption" formControlName="description"
+                name="descrption"></textarea>
+            <div class="alert alert-warning" [hidden]="description?.valid||description?.untouched">
+                <small *ngIf="description?.errors?.['required']">
+                    description is not required
+                </small>
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label for="price">Product price</label>
+            <input class="form-control" type="number" id="price" placeholder="price" formControlName="price" min="0">
+            <div class="alert alert-warning" [hidden]="price?.valid||price?.untouched">
+                <small *ngIf="price?.errors?.['required']">
+                    productprice is not required
+                </small>
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label for="quantiy">Product quantiy</label>
+            <input class="form-control" id="quantiy" placeholder="quantity" type="number" formControlName="quantity"
+                min="0">
+            <div class="alert alert-warning" [hidden]="quantity?.valid||quantity?.untouched">
+                <small *ngIf="quantity?.errors?.['required']">
+                    productquantity is not required
+                </small>
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label for="discountPercentage">Product discountPercentage</label>
+            <input class="form-control" id="discountPercentage" placeholder="discountPercentage" type="number" min="0"
+                formControlName="discountPercentage">
+            <div class="alert alert-warning" [hidden]="discountPercentage?.valid||discountPercentage?.untouched">
+                <small *ngIf="discountPercentage?.errors?.['required']">
+                    productdiscountPercentage is not required
+                </small>
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label for="image">Product image</label>
+            <input type="file" id="image" class="form-control" (change)="uploadFile($event)">
+            <div class="alert alert-warning" [hidden]="imageFile?.valid||imageFile?.untouched">
+                <small *ngIf="imageFile?.errors?.['required']">
+                    productName is not required
+                </small>
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label for="Brands">Product Brands</label>
+            <select id="Brands" class="form-control" name="product.brands" formControlName="brandID" required>
+                <option *ngFor="let item of Brand" [value]="item.id">{{item.bName}}</option>
+            </select>
+            <div class="alert alert-warning" [hidden]="brandID?.valid||brandID?.untouched">
+                <small *ngIf="brandID?.errors?.['required']">
+                    product brandNot Selected is not required
+                </small>
+            </div>
+        </div>
+        <div class="form-group  col-md-10">
+            <label for="Category">Product Category</label>
+            <select id="Category" class="form-control" name="Category" formControlName="categoryId" required>
+                <option *ngFor="let item of Categorie" [value]="item.id">{{item.catName}}</option>
+            </select>
+            <div class="alert alert-warning" [hidden]="categoryId?.valid||categoryId?.untouched">
+                <small *ngIf="categoryId?.errors?.['required']">
+                    product category is not Selected
+                </small>
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label for="Availability">Product Availability</label>
+            <select id="Availability" class="form-control" formControlName="availability" name="Availability">
+                <option [value]="true">متاحه </option>
+                <option [value]="false"> غير متاحه</option>
+            </select>
+            <div class="alert alert-warning" [hidden]="availability?.valid||availability?.untouched">
+                <small *ngIf="availability?.errors?.['required']">
+                    product availability is not Selected
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <button mat-flat-button color="primary" [disabled]="!FormProduct.valid" class="h-25"
+                type="submit">Add</button>
+        </div>
+        <br>
+        <br>
+    </form>
+</div>

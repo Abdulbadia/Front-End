@@ -1,6 +1,4 @@
-<div>
-    {{product|json}}
-</div>
+<!-- 
 <form #prdFrom="ngForm" (ngSubmit)="save(product.id)">
     <div class="form-row">
         <div class="form-group col-md-10">
@@ -31,13 +29,13 @@
     <div class="form-row">
         <div class="form-group col-md-10">
             <label for="image">Product image</label>
-            <input type="file" class="form-control" id="image" [(ngModel)]="product.image" name="product.image"
+            <input type="file" class="form-control" id="image" [(ngModel)]="product.imageSrc" name="product.image"
                 required>
         </div>
         <div class="form-group col-md-10">
             <label for="Brands">Product Brands</label>
             <select id="Brands" class="form-control" name="product.brands" [(ngModel)]="product.brandID">
-                <option [value]="product.brandID">{{product.brand}}</option>
+                <option [value]="product.brandID">{{product.brandName}}</option>
                 <option *ngFor="let item of Brand" [value]="item.id">{{item.bName}}</option>
             </select>
         </div>
@@ -65,4 +63,4 @@
     <button mat-flat-button color="primary" class="h-25" type="submit">UpdataProduct</button>
     <br>
     <br>
-</form>
+</form> -->
