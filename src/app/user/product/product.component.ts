@@ -50,6 +50,7 @@ export class ProductComponent implements OnInit {
 
   };
   addToCart(){
+    console.log('sending data');
     if(this.token){
       const itemstoaddobserver={
           next:(data)=>{
@@ -60,7 +61,7 @@ export class ProductComponent implements OnInit {
             alert(`something wrong happened`);
             err.message}
         }
-    this.addcartser.addtocart(this.itemstoadd).subscribe();
+    this.addcartser.addtocart(this.itemstoadd).subscribe(itemstoaddobserver);
     console.log(localStorage.getItem('token'));
   }
     else{

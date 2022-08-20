@@ -1,4 +1,5 @@
 export interface Icart {
   token:string;
-  prdId:number;
+  prdId?:number;
+  quantity?:number;
 }
