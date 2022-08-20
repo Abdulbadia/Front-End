@@ -12,4 +12,7 @@ export interface IProduct {
     brandID: number;
     availability: boolean;
     discountPercentage: number;
+    imageSrc?:string;
+    imageName?:string;
+    imageFile?:string;
 }

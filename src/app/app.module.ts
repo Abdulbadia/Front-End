@@ -40,7 +40,9 @@ import { AboutComponent } from './user/about/about.component';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedfilesModule
+    SharedfilesModule,
+    BrowserModule
+
 
   ],
   providers: [],
