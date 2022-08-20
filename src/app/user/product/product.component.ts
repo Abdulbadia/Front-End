@@ -3,6 +3,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ProductAPiService } from '../../modules/admin/Shared/product-api.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { IProduct } from 'src/app/modules/admin/Standers/iproduct';
+import { AddcartService } from '../../Services/addcart.service';
+import { Icart } from '../../Interfaces/icart';
 
 @Component({
   selector: 'app-product',
@@ -24,11 +26,17 @@ export class ProductComponent implements OnInit {
     discountPercentage: 0
   }
   @Input() data:any={}
+  token:string;
   id:number;
   Src:string="";
-  constructor(private PrdSer:ProductAPiService,private ActivatedRoute:ActivatedRoute) {
+  itemstoadd:Icart;
+  constructor(private PrdSer:ProductAPiService,private ActivatedRoute:ActivatedRoute,private addcartser:AddcartService) {
     this.ActivatedRoute.paramMap.subscribe((params:ParamMap)=>this.id=+(params.get('id')))
-    // console.log(this.id)
+    this.token=localStorage.getItem('token');
+    this.itemstoadd={
+      token: this.token,
+      prdId:this.id
+    }
     const prdobserver={
       next:(data)=>{
     this.product=data;
@@ -40,8 +48,25 @@ export class ProductComponent implements OnInit {
       }
     this.PrdSer.get_productByID(this.id).subscribe(prdobserver);
 
-  }//private MSG:MessengerService
-
+  };
+  addToCart(){
+    if(this.token){
+      const itemstoaddobserver={
+          next:(data)=>{
+          alert(`item added successfully`);
+          console.log(data);
+          },
+          error:(err:Error)=>{
+            alert(`something wrong happened`);
+            err.message}
+        }
+    this.addcartser.addtocart(this.itemstoadd).subscribe();
+    console.log(localStorage.getItem('token'));
+  }
+    else{
+      alert(`you should login first`);
+    }
+}
   ngOnInit(): void {
   }
   handleAddToCart(){
