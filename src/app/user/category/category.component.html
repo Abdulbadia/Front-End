@@ -69,11 +69,17 @@
                                                       <label class="form-check-label fw-normal text-body flex-grow-1 d-flex justify-content-between"
                                                           for="filter-brand-0"> كل الاصناف
                                                       </label>
-                                                      <input type="radio" name="flexRadioDefault" value="عناية شخصية" ngModel [(ngModel)]="category" class="form-check-input" id="filter-brand-0">
+                                                    <ng-container *ngFor="let cat of categories">
+                                                      <input  type="radio" name="flexRadioDefault" value={{cat.catName}} ngModel [(ngModel)]="category" class="form-check-input" id="filter-brand-0">
+                                                      <label class="form-check-label fw-normal text-body flex-grow-1 d-flex justify-content-between"
+                                                          for="filter-brand-0"> {{cat.catName}}
+                                                      </label>
+                                                    </ng-container>
+                                                    <!--
+                                                      <input  type="radio" name="flexRadioDefault" value="عناية شخصية" ngModel [(ngModel)]="category" class="form-check-input" id="filter-brand-0">
                                                       <label class="form-check-label fw-normal text-body flex-grow-1 d-flex justify-content-between"
                                                           for="filter-brand-0">عناية شخصية
                                                       </label>
-
                                                       <input type="radio"name="flexRadioDefault" value="مستلزمات المنزل" ngModel [(ngModel)]="category" class="form-check-input" id="filter-brand-1">
                                                       <label class="form-check-label fw-normal text-body flex-grow-1 d-flex justify-content-between"
                                                           for="filter-brand-1">مستلزمات المنزل
@@ -85,8 +91,8 @@
                                                       <input type="radio"name="flexRadioDefault" value="اكسسوارات الحمام" ngModel [(ngModel)]="category" class="form-check-input" id="filter-brand-3">
                                                       <label class="form-check-label fw-normal text-body flex-grow-1 d-flex justify-content-between"
                                                           for="filter-brand-3">اكسسوارات الحمام
-                                                      </label>
-                                                      {{userForm.value|json}}
+                                                      </label> -->
+                                                      <!-- {{userForm.value|json}} -->
                                                       <!-- {{userModel|json}} -->
                                                   </form>
                                                 </div>
