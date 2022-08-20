@@ -38,7 +38,11 @@ this.category="كل الاصناف";
   this.catserv.get_AllCata().subscribe(catobserver);
 
   }
+  goToDetails(id:number){
+    this.router.navigate(['user/Products',id]);
+    // console.log(id)
 
+  }
   ngOnInit(): void {
   }
 
