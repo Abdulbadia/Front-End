@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Iuser } from '../Interfaces/iuser';
 import { Ilogin } from '../Interfaces/ilogin';
 import { Irespond } from '../Interfaces/irespond';
+import { Icart } from '../Interfaces/icart';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class AuthenticationService {
   private isLoggedSubject:BehaviorSubject<boolean>;
   private type:string;
 httpoptions;
+objtosend:Icart;
   constructor(private httpclient:HttpClient) {
     this.isLoggedSubject =new BehaviorSubject<boolean>((localStorage.getItem("token"))?true:false);
     this.httpoptions={
@@ -36,6 +38,15 @@ httpoptions;
     }
     else{console.log(error.status);
       console.error(`Backend returne code ${JSON.stringify( error.error) }`,`body is:`,error.error);}
+    return throwError(()=>new Error('Error occured please try again'))
+  }
+  private HHandleError(error:HttpErrorResponse){
+    // console.log(error)
+    if(error.status===0){
+      console.log('An error occured:',error.error)
+    }
+    else{console.log(error.status);
+      console.log(`Backend returne code ${JSON.stringify( error.error) }`,`body is:`,error.error);}
     return throwError(()=>new Error('Error occured please try again'))
   }
 Login(user:Ilogin){
@@ -70,5 +81,8 @@ setType(type:string){
   }
   checkBEAdmin(token:string){
 
+   this.objtosend={token:token}
+   return this.httpclient.post(`${environment.APIURL}/api/users/usertoken`,JSON.stringify(this.objtosend),this.httpoptions).pipe(catchError(this.HHandleError))
   }
+
 }
