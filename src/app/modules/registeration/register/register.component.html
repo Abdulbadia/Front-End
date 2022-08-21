@@ -1,102 +1,123 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-<section
-class="mt-10 vh-99 d-flex justify-content-center align-items-center p-4">
-<!-- Page Content Goes Here -->
+<section class="mt-10 vh-99 d-flex justify-content-center align-items-center p-4">
+  <!-- Page Content Goes Here -->
 
-<!-- Login Form-->
-<div class="col col-md-8 col-lg-6 col-xxl-5">
+  <!-- Login Form-->
+  <div class="col col-md-8 col-lg-6 col-xxl-5">
     <!-- Logo-->
     <div class="d-flex align-items-center" style="justify-content: center;">
-      <div class="f-w-6 d-flex align-items-center me-2 lh-1"style="justify-content: center;">
-          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 194 194"><path fill="currentColor" class="svg-logo-white" d="M47.45,60l1.36,27.58,53.41-51.66,50.87,50,3.84-26L194,100.65V31.94A31.94,31.94,0,0,0,162.06,0H31.94A31.94,31.94,0,0,0,0,31.94v82.57Z"/><path fill="currentColor" class="svg-logo-dark" d="M178.8,113.19l1,34.41L116.3,85.92l-14.12,15.9L88.07,85.92,24.58,147.53l.93-34.41L0,134.86v27.2A31.94,31.94,0,0,0,31.94,194H162.06A31.94,31.94,0,0,0,194,162.06V125.83Z"/></svg> -->
-          <img src="./assets/images//logos/sarty_logo_png-0١.png" class="logo" alt=""width="170" height="150">
+      <div class="f-w-6 d-flex align-items-center me-2 lh-1" style="justify-content: center;">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 194 194"><path fill="currentColor" class="svg-logo-white" d="M47.45,60l1.36,27.58,53.41-51.66,50.87,50,3.84-26L194,100.65V31.94A31.94,31.94,0,0,0,162.06,0H31.94A31.94,31.94,0,0,0,0,31.94v82.57Z"/><path fill="currentColor" class="svg-logo-dark" d="M178.8,113.19l1,34.41L116.3,85.92l-14.12,15.9L88.07,85.92,24.58,147.53l.93-34.41L0,134.86v27.2A31.94,31.94,0,0,0,31.94,194H162.06A31.94,31.94,0,0,0,194,162.06V125.83Z"/></svg> -->
+        <img src="./assets/images//logos/sarty_logo_png-0١.png" class="logo" alt="" width="170" height="150">
       </div>
       <!-- <span class="fs-5">Alpine</span> -->
-  </div>
+    </div>
     <!-- / Logo-->
     <div class="shadow-xl p-4 p-lg-5 bg-white">
-        <h1 class="text-center mb-5 fs-2 fw-bold">انشاء حساب</h1>
-        <!-- <a href="#" class="btn btn-facebook d-block mb-2"><i class="ri-facebook-circle-fill align-bottom"></i> Login
+      <h1 class="text-center mb-5 fs-2 fw-bold">انشاء حساب</h1>
+      <!-- <a href="#" class="btn btn-facebook d-block mb-2"><i class="ri-facebook-circle-fill align-bottom"></i> Login
             with Facebook</a>
         <a href="#" class="btn btn-twitter d-block mb-2"><i class="ri-twitter-fill align-bottom"></i> Login with
             Twitter</a> -->
-        <!-- <span class="text-muted text-center d-block fw-bolder my-4">OR</span> -->
-        <form [formGroup]="userRegfrm" (ngSubmit)="submit"style="direction: rtl;">
-          <!-- name -->
-            <div class="form-group">
-              <label class="form-label" for="register-fname">الاسم بالكامل</label>
-              <input formControlName="fullname" [class.is-valid]="fullname.valid"[class.is-invalid]="fullname.invalid&&fullname.touched" type="text" class="form-control" id="register-fname" placeholder="ادخل الاسم كاملا">
-              <small class="text-danger" *ngIf="fullname?.errors?.['required']&&fullname.touched">*هذا الحقل مطلوب</small>
-              <small class="text-danger" *ngIf="fullname?.errors?.['pattern']&&fullname.dirty">ادخل الاسم ثلاثى</small>
-            </div>
-            <!-- adress-->
-            <div formGroupName="address" >
-              <div class="form-group">
-                <label class="form-label" for="register-governorat">المحافظة</label><br>
-                <input formControlName="governorat" [class.is-valid]="governorat.valid"[class.is-invalid]="governorat.invalid&&governorat.touched" type="text" class="form-control" id="register-governorat" placeholder="ادخل المحافظه الخاصة بك">
-                <small class="text-danger" *ngIf="governorat.invalid&&governorat.touched">*هذا الحقل مطلوب</small>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="register-city">المدينة</label><br>
-                <input formControlName="city" [class.is-valid]="city.valid"[class.is-invalid]="city.invalid&&city.touched" type="text" class="form-control" id="register-city" placeholder="ادخل المدينة الخاصة بك">
-                <small class="text-danger" *ngIf="city.invalid&&city.touched">*هذا الحقل مطلوب</small>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="register-street">الشارع</label><br>
-                <input formControlName="street" [class.is-valid]="street.valid"[class.is-invalid]="street.invalid&&street.touched" type="text" class="form-control" id="register-street" placeholder="ادخل الشارع الخاص بك">
-                <small class="text-danger" *ngIf="street.invalid&&street.touched">*هذا الحقل مطلوب</small>
-              </div>
+      <!-- <span class="text-muted text-center d-block fw-bolder my-4">OR</span> -->
+      <form [formGroup]="userRegfrm" (ngSubmit)="submit" style="direction: rtl;">
+        <!-- name -->
+        <div class="form-group">
+          <label class="form-label" for="register-fname">الاسم بالكامل</label>
+          <input formControlName="fullname" [class.is-valid]="fullname.valid"
+            [class.is-invalid]="fullname.invalid&&fullname.touched" type="text" class="form-control" id="register-fname"
+            placeholder="ادخل الاسم كاملا">
+          <small class="text-danger" *ngIf="fullname?.errors?.['required']&&fullname.touched">*هذا الحقل مطلوب</small>
+          <small class="text-danger" *ngIf="fullname?.errors?.['pattern']&&fullname.dirty">ادخل الاسم ثلاثى</small>
+        </div>
+        <!-- adress-->
+        <div formGroupName="address">
+          <div class="form-group">
+            <label class="form-label" for="register-governorat">المحافظة</label><br>
+            <input formControlName="governorat" [class.is-valid]="governorat.valid"
+              [class.is-invalid]="governorat.invalid&&governorat.touched" type="text" class="form-control"
+              id="register-governorat" placeholder="ادخل المحافظه الخاصة بك">
+            <small class="text-danger" *ngIf="governorat.invalid&&governorat.touched">*هذا الحقل مطلوب</small>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="register-city">المدينة</label><br>
+            <input formControlName="city" [class.is-valid]="city.valid" [class.is-invalid]="city.invalid&&city.touched"
+              type="text" class="form-control" id="register-city" placeholder="ادخل المدينة الخاصة بك">
+            <small class="text-danger" *ngIf="city.invalid&&city.touched">*هذا الحقل مطلوب</small>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="register-street">الشارع</label><br>
+            <input formControlName="street" [class.is-valid]="street.valid"
+              [class.is-invalid]="street.invalid&&street.touched" type="text" class="form-control" id="register-street"
+              placeholder="ادخل الشارع الخاص بك">
+            <small class="text-danger" *ngIf="street.invalid&&street.touched">*هذا الحقل مطلوب</small>
+          </div>
 
 
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="register-number">رقم هاتفك المحمول</label>
+          <input formControlName="phonenumber" [class.is-valid]="phonenumber.valid"
+            [class.is-invalid]="phonenumber.invalid&&phonenumber.touched" type="text" class="form-control"
+            id="register-number" placeholder="ادخل رقم هاتفك المحمول">
+          <small class="text-danger" *ngIf="phonenumber?.errors?.['required']&&phonenumber.touched">*هذا الحقل
+            مطلوب</small>
+          <small class="text-danger" *ngIf="phonenumber?.errors?.['pattern']&&phonenumber.dirty">رقم الهاتف غير
+            صالح</small>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="register-email">البريد الالكترونى</label>
+          <input formControlName="username" [class.is-valid]="username.valid"
+            [class.is-invalid]="username.invalid&&username.touched" type="email" class="form-control"
+            id="register-email" placeholder="name@email.com" style="direction: ltr;">
+          <small class="text-danger" *ngIf="username?.errors?.['required']&&username.touched">*هذا الحقل مطلوب</small>
+          <small class="text-danger" *ngIf="username?.errors?.['pattern']&&username.dirty">البريد الالكترونى غير
+            صالح</small>
+        </div>
+        <label class="form-label" for="register-password">كلمة السر</label>
+        <div class="form-group">
+          <div class="input-group">
+            <input formControlName="password" [class.is-valid]="password.valid"
+              [class.is-invalid]="password.invalid&&password.touched" [type]="fieldTextType ? 'text' : 'password'"
+              class="form-control" id="register-password" placeholder=" ادخل كلمة السر الخاصة بك">
+            <!-- <i class="bi bi-eye"></i><i class="bi bi-eye-slash"></i> -->
+            <div class="input-group-append">
+              <span (click)="toggleFieldTextType()" class="input-group-text" style="cursor:pointer">
+                <i class="bi bi-eye-slash "
+                  [ngClass]="{ 'bi bi-eye': !fieldTextType,'bi bi-eye-slash': fieldTextType}"></i>
+              </span>
             </div>
-            <div class="form-group">
-              <label class="form-label" for="register-number">رقم هاتفك المحمول</label>
-              <input formControlName="phonenumber" [class.is-valid]="phonenumber.valid"[class.is-invalid]="phonenumber.invalid&&phonenumber.touched"  type="text" class="form-control" id="register-number" placeholder="ادخل رقم هاتفك المحمول">
-              <small class="text-danger" *ngIf="phonenumber?.errors?.['required']&&phonenumber.touched">*هذا الحقل مطلوب</small>
-              <small class="text-danger" *ngIf="phonenumber?.errors?.['pattern']&&phonenumber.dirty">رقم الهاتف غير صالح</small>
-            </div>
-            <div class="form-group" >
-              <label class="form-label" for="register-email">البريد الالكترونى</label>
-              <input formControlName="username" [class.is-valid]="username.valid"[class.is-invalid]="username.invalid&&username.touched" type="email" class="form-control" id="register-email" placeholder="name@email.com" style="direction: ltr;">
-              <small class="text-danger" *ngIf="username?.errors?.['required']&&username.touched">*هذا الحقل مطلوب</small>
-              <small class="text-danger" *ngIf="username?.errors?.['pattern']&&username.dirty">البريد الالكترونى غير صالح</small>
-            </div>
-            <label class="form-label" for="register-password">كلمة السر</label>
-            <div class="form-group">
-              <div class="input-group">
-                <input formControlName="password" [class.is-valid]="password.valid"
-                  [class.is-invalid]="password.invalid&&password.touched" [type]="fieldTextType ? 'text' : 'password'"
-                  class="form-control" id="register-password" placeholder=" ادخل كلمة السر الخاصة بك">
-                <!-- <i class="bi bi-eye"></i><i class="bi bi-eye-slash"></i> -->
-                <div class="input-group-append">
-                  <span (click)="toggleFieldTextType()" class="input-group-text" style="cursor:pointer">
-                    <i class="bi bi-eye-slash " [ngClass]="{ 'bi bi-eye': !fieldTextType,'bi bi-eye-slash': fieldTextType}"></i>
-                  </span>
-                </div>
-              </div>
-              <small class="text-danger" *ngIf="password?.errors?.['required']&&password.touched">*هذا الحقل مطلوب</small>
-              <small class="text-danger" *ngIf="password?.errors?.['pattern']&&password.dirty"> كلمة السر ضعيفه <br>
-                كلمة السر يجب ان تحتوى على ثمانية اماكن على الاقل بها حرفين capital
-                ثلاثة احرف small
-                ورقمين وحرف special case
-              </small>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="register-confpass">  اعادة كلمة السر  </label>
-              <input formControlName="confirmpassword" [class.is-valid]="confirmpassword.valid&&!userRegfrm?.errors?.['unmatched password']"[class.is-invalid]="confirmpassword.touched&&(confirmpassword.invalid||userRegfrm?.errors?.['unmatched password'])"  type="password" class="form-control" id="register-confpass" placeholder="اعد كتابة كلمة السر">
-              <small class="text-danger" *ngIf="confirmpassword?.errors?.['required']&&confirmpassword.touched">*هذا الحقل مطلوب</small><br>
-              <small class="text-danger" *ngIf="userRegfrm?.errors?.['unmatched password']&&confirmpassword.dirty"> كلمة السر غير متطابقة </small>
-            </div>
-            <button type="submit" (click)="submit()"  class="btn btn-dark d-block w-100 my-4" [disabled]="userRegfrm.invalid">تسجيل</button>
-          </form>
-          <!-- {{userRegfrm.value|json}}
+          </div>
+          <small class="text-danger" *ngIf="password?.errors?.['required']&&password.touched">*هذا الحقل مطلوب</small>
+          <small class="text-danger" *ngIf="password?.errors?.['pattern']&&password.dirty"> كلمة السر ضعيفه <br>
+            كلمة السر يجب ان تحتوى على ثمانية اماكن على الاقل بها حرفين capital
+            ثلاثة احرف small
+            ورقمين وحرف special case
+          </small>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="register-confpass"> اعادة كلمة السر </label>
+          <input formControlName="confirmpassword"
+            [class.is-valid]="confirmpassword.valid&&!userRegfrm?.errors?.['unmatched password']"
+            [class.is-invalid]="confirmpassword.touched&&(confirmpassword.invalid||userRegfrm?.errors?.['unmatched password'])"
+            type="password" class="form-control" id="register-confpass" placeholder="اعد كتابة كلمة السر">
+          <small class="text-danger" *ngIf="confirmpassword?.errors?.['required']&&confirmpassword.touched">*هذا الحقل
+            مطلوب</small><br>
+          <small class="text-danger" *ngIf="userRegfrm?.errors?.['unmatched password']&&confirmpassword.dirty"> كلمة
+            السر غير متطابقة </small>
+        </div>
+        <button type="submit" (click)="submit()" class="btn btn-dark d-block w-100 my-4"
+          [disabled]="userRegfrm.invalid">تسجيل</button>
+      </form>
+      <!-- {{userRegfrm.value|json}}
           {{governorat}} -->
-          <p class="d-block text-center text-muted">امتلك حساب بالفعل <a class="text-muted" [routerLink]="['/Auth/Login']">سجل الدخول</a></p>
+      <p class="d-block text-center text-muted">امتلك حساب بالفعل <a class="text-muted"
+          [routerLink]="['/Auth/Login']">سجل الدخول</a></p>
     </div>
-<!-- <img src="/src/assets/images/banners/banner-1.jpg" alt=""> -->
-</div>
-<!-- / Login Form-->
+    <!-- <img src="/src/assets/images/banners/banner-1.jpg" alt=""> -->
+  </div>
+  <!-- / Login Form-->
 
-<!-- /Page Content -->
+  <!-- /Page Content -->
 </section>
 <!-- / Main Section-->

@@ -1,3 +1,49 @@
+<br>
 <button mat-flat-button color="primary" class="fs-3" routerLink="../Createadmin">اضافه مشرف
 
 </button>
+
+<br>
+<br>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> البريد الالكترونى للعاميل </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+        <ng-container matColumnDef="fullname">
+            <th mat-header-cell *matHeaderCellDef> اسم العاميل </th>
+            <td mat-cell *matCellDef="let element"> {{element.fullname}} </td>
+        </ng-container>
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> العنوان </th>
+            <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="phonenumber">
+            <th mat-header-cell *matHeaderCellDef> رقم تليفون العاميل </th>
+            <td mat-cell *matCellDef="let element"> {{ element.phonenumber}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element">
+                <!-- <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                 <mat-menu #menu="matMenu">
+                     <a mat-menu-item style="font-size:20px;">Detailes</a>
+                    <button mat-menu-item style="font-size:20px;" (onclick)="Edituseradmin()">
+                        اضاف هذا
+                        المستخدم مشرف </button>
+                </mat-menu>  -->
+                <button mat-flat-button (click)="Delete_USers(element.emial)">
+                    <mat-icon style="font-size:30px;">delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <!-- <mat-paginator [length]="100" [pageSize]="20" [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator> -->
+</div>

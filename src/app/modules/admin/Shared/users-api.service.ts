@@ -27,7 +27,7 @@ export class UsersApiService {
   }
 
   get_AllUSers(): Observable<Customers[]> {
-    return this.http.get<Customers[]>(`${environment.URL}/users`, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2), catchError(this.handleError))
+    return this.http.get<Customers[]>(`${environment.URL}/users/GetUsers`, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2), catchError(this.handleError))
   }
 
   Delete_USers(email: string): Observable<Customers> {

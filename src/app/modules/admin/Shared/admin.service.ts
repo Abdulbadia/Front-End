@@ -1,6 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { catchError, Observable, throwError, retry } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Customers } from '../Standers/customers';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +23,9 @@ export class AdminService {
         `Backend returned code ${error.status}, body was: `, error.error);
     }
     return throwError(() => new Error('Something bad happened; please try again later.'));
+  }
+
+  get_Alladmins(): Observable<Customers[]> {
+    return this.http.get<Customers[]>(`${environment.URL}/users/Getadmin`, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2), catchError(this.handleError))
   }
 }

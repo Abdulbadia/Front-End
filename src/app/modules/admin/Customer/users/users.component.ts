@@ -29,4 +29,23 @@ export class UsersComponent implements OnInit {
       })
     }
   }
+
+  // Edituseradmin() {
+  //   const user: Customers = {
+  //     email: '',
+  //     fullname: '',
+  //     phonenumber: '',
+  //     address: '',
+  //     image: '',
+  //     type: 'admin',
+  //   }
+  //   if (window.confirm("هل انت متاكد انك تريد اضافه هذا المستخدم من المشرفين ")) {
+  //     this._userService.Edit_User(email, user).subscribe(data => {
+  //       console.log(data);
+  //     })
+  //   }
+  // }
+
+
+
 }
