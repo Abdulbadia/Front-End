@@ -12,21 +12,21 @@
           <!-- Cart Items -->
           <div class="col-12 col-lg-6 col-xl-7">
               <div class="table-responsive">
-                  <table class="table">
+                  <table class="table"style="font-family:Cairo;font-size:30px;font-weight:700 ">
                       <thead>
                           <tr>
-                              <th class="d-none d-sm-table-cell"></th>
-                              <th class="ps-sm-3">التفاصيل</th>
-                              <th>الكميه</th>
-                              <th></th>
+
+                              <th colspan="2" class="ps-sm-3"style="text-align:center">التفاصيل</th>
+                              <th colspan="2"style="text-align:center">الكميه</th>
+
                           </tr>
                       </thead>
                       <tbody>
-                              <tr>
+                              <tr *ngFor="let item of showprod">
                                   <!-- image -->
                                       <td class="d-none d-sm-table-cell">
                                           <picture class="d-block bg-light p-3 f-w-20">
-                                              <img class="img-fluid" src="./assets/images/products/product-1.jpg" alt="">
+                                              <img class="img-fluid" src={{item.imageSrc}} alt="">
                                           </picture>
                                       </td>
                                   <!-- image -->
@@ -34,9 +34,9 @@
                                   <!-- Details -->
                                       <td>
                                           <div class="ps-sm-3">
-                                              <h6 class="mb-2 fw-bolder">
-                                                  Mens StormBreaker Jacket
-                                              </h6>
+                                              <h2 class="mb-2 fw-bolder" >
+                                                {{item.name}}
+                                              </h2>
                                               <!-- <small class="d-block text-muted">Mens / Blue / Medium</small> -->
                                           </div>
                                       </td>
@@ -45,7 +45,7 @@
                                   <!-- Qty -->
                                       <td>
                                           <div class="px-3">
-                                              <span class="small text-muted mt-1">1 @ $1129.99</span>
+                                              <span class="small text-muted mt-1">1 @ EGP{{item.price}} </span>
                                           </div>
                                       </td>
                                   <!-- /Qty -->
@@ -53,8 +53,8 @@
                                   <!-- Actions -->
                                       <td class="f-h-0">
                                           <div class="d-flex justify-content-between flex-column align-items-end h-100">
-                                              <i class="ri-close-circle-line ri-lg"></i>
-                                              <p class="fw-bolder mt-3 m-sm-0">$1129.99</p>
+                                              <!-- <i class="ri-close-circle-line ri-lg"></i>
+                                              <p class="fw-bolder mt-3 m-sm-0">$1129.99</p> -->
                                           </div>
                                       </td>
                                   <!-- /Actions -->
@@ -85,7 +85,7 @@
                               <p class="m-0 fs-5 fw-bold"style="font-family:Cairo;font-size:40px;font-weight:700 ">الفاتورة الكلية</p>
                               <!-- <span class="text-white opacity-75 small">Inc $45.89 sales tax</span> -->
                           </div>
-                          <p class="mt-3 m-sm-0 fs-5 fw-bold">$422.99</p>
+                          <p class="mt-3 m-sm-0 fs-5 fw-bold">EGP{{sum}}</p>
                       </div>
                   </div>
 

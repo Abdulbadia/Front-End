@@ -23,6 +23,11 @@ export class AddcartService {
 
     return a;
    }
+   getcartitems(cartdetails:Icart){
+    let a= this.HttpClient.post(`${environment.APIURL}/api/Carts/getitemstoken`,JSON.stringify(cartdetails),this.httpoptions).pipe(catchError(this.handleError));
+
+    return a;
+   }
     // editquantity(cartdetails:Icart){
     //   let a= this.HttpClient.post(`${environment.APIURL}/api/  `,JSON.stringify(cartdetails),this.httpoptions).pipe(catchError(this.handleError));
 
