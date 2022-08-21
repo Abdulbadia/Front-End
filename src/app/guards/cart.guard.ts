@@ -12,6 +12,7 @@ export class CartGuard implements CanActivate {
     if(localStorage.getItem('token')){
       return true;
     }
+    alert("you must login first")
     return false;
   }
 
