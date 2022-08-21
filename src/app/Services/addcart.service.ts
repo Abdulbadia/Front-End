@@ -33,11 +33,12 @@ export class AddcartService {
 
     //   return a;
     // }
-    // checkout(cartdetails:Icart){
-    //   let a= this.HttpClient.post(`${environment.APIURL}/api/  `,JSON.stringify(cartdetails),this.httpoptions).pipe(catchError(this.handleError));
+    checkout(cartdetails:Icart){
+      console.log("checking Out");
+      let a= this.HttpClient.post(`${environment.APIURL}/api/OrderDetials/createOrder`,JSON.stringify(cartdetails),this.httpoptions).pipe(catchError(this.handleError));
 
-    //   return a;
-    // }
+      return a;
+    }
     // updatecart(){}
     private handleError(error:HttpErrorResponse){
     // console.log(error)

@@ -31,7 +31,18 @@ export class CartComponent implements OnInit {
     }
    }//private MSG:MessengerService
 
-
+submit(){
+  const addcartobs={
+    next:(data)=>{
+      // alert(`item added successfully`);
+     alert("done Checkout")
+    },
+    error:(err:Error)=>{
+      alert(`something wrong happened`);
+      err.message}
+    }
+    this.AddcartService.checkout({token:this.token}).subscribe(addcartobs);
+}
 
   ngOnInit(): void {
 
