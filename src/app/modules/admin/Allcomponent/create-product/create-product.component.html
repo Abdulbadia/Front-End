@@ -115,102 +115,107 @@
 
 
 <br>
-<div class="container">
+<div class="container" style="direction: rtl; font-family: Arial, Helvetica, sans-serif;">
     <form [formGroup]="FormProduct" (ngSubmit)="submitForm()" enctype="multipart/form-data">
         <div class=" form-group col-md-10">
-            <label for="prdName">Product Name</label>
-            <input class="form-control" id="prdName" type="text" placeholder="Name" formControlName="name">
-            <div class="alert alert-warning" [hidden]="name?.valid||name?.untouched">
+            <label for="prdName" class="fs-3">اسم المنتج</label>
+            <input class="form-control fs-3" id="prdName" type="text" placeholder="اسم المنتج" formControlName="name">
+            <div class="alert alert-warning fs-3" [hidden]="name?.valid||name?.untouched">
                 <small *ngIf="name?.errors?.['required']">
-                    productName is not required
+                    اسم المنتج مطلوب
+
                 </small>
             </div>
         </div>
         <div class="form-group col-md-10">
-            <label for="Descrption">Product Descrption</label>
-            <textarea class="form-control" id="Descrption" placeholder="Descrption" formControlName="description"
+            <label for="Descrption" class="fs-3 mt-2">وصف المنتج</label>
+            <textarea class="form-control fs-3" id="Descrption" placeholder="وصف المنتج" formControlName="description"
                 name="descrption"></textarea>
-            <div class="alert alert-warning" [hidden]="description?.valid||description?.untouched">
+            <div class="alert alert-warning fs-3" [hidden]="description?.valid||description?.untouched">
                 <small *ngIf="description?.errors?.['required']">
-                    description is not required
+                    الوصف مطلوب
                 </small>
             </div>
         </div>
         <div class="form-group col-md-10">
-            <label for="price">Product price</label>
-            <input class="form-control" type="number" id="price" placeholder="price" formControlName="price" min="0">
-            <div class="alert alert-warning" [hidden]="price?.valid||price?.untouched">
-                <small *ngIf="price?.errors?.['required']">
-                    productprice is not required
-                </small>
-            </div>
-        </div>
-        <div class="form-group col-md-10">
-            <label for="quantiy">Product quantiy</label>
-            <input class="form-control" id="quantiy" placeholder="quantity" type="number" formControlName="quantity"
+            <label for="price" class="fs-3">سعر المنتج</label>
+            <input class="form-control fs-3" type="number" id="price" placeholder="سعر المنتج" formControlName="price"
                 min="0">
-            <div class="alert alert-warning" [hidden]="quantity?.valid||quantity?.untouched">
+            <div class="alert alert-warning fs-3" [hidden]="price?.valid||price?.untouched">
+                <small *ngIf="price?.errors?.['required']">
+                    سعر المنتج مطلوب
+
+                </small>
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label for="quantiy" class="fs-3">كمية المنتج</label>
+            <input class="form-control fs-3" id="quantiy" placeholder="كمية المنتج" type="number"
+                formControlName="quantity" min="0">
+            <div class="alert alert-warning fs-3" [hidden]="quantity?.valid||quantity?.untouched">
                 <small *ngIf="quantity?.errors?.['required']">
-                    productquantity is not required
+                    كمية المنتج مطلوبة
                 </small>
             </div>
         </div>
         <div class="form-group col-md-10">
-            <label for="discountPercentage">Product discountPercentage</label>
-            <input class="form-control" id="discountPercentage" placeholder="discountPercentage" type="number" min="0"
+            <label for="discountPercentage" class="col-md-8 fs-3">نسبة خصم المنتج</label>
+            <input class="form-control fs-3" id="discountPercentage" placeholder="نسبة خصم المنتج" type="number" min="0"
                 formControlName="discountPercentage">
-            <div class="alert alert-warning" [hidden]="discountPercentage?.valid||discountPercentage?.untouched">
+            <!-- <div class="alert alert-warning" [hidden]="discountPercentage?.valid||discountPercentage?.untouched">
                 <small *ngIf="discountPercentage?.errors?.['required']">
-                    productdiscountPercentage is not required
-                </small>
-            </div>
+                    نسبة خصم المنتج غير مطلوبة  
+                              </small>
+            </div> -->
         </div>
         <div class="form-group col-md-10">
-            <label for="image">Product image</label>
-            <input type="file" id="image" class="form-control" (change)="uploadFile($event)">
-            <div class="alert alert-warning" [hidden]="imageFile?.valid||imageFile?.untouched">
+            <label for="image" class="fs-3">صورة المنتج</label>
+            <input type="file" id="image" class="form-control fs-3" placeholder="اضافه الصوره"
+                (change)="uploadFile($event)">
+            <div class="alert alert-warning fs-3" [hidden]="imageFile?.valid||imageFile?.untouched">
                 <small *ngIf="imageFile?.errors?.['required']">
-                    productName is not required
+                    صوره المنتج مطلوبة
                 </small>
             </div>
         </div>
         <div class="form-group col-md-10">
-            <label for="Brands">Product Brands</label>
+            <label for="Brands" class="fs-3">ماركات المنتج</label>
             <select id="Brands" class="form-control" name="product.brands" formControlName="brandID" required>
-                <option *ngFor="let item of Brand" [value]="item.id">{{item.bName}}</option>
+                <option *ngFor="let item of Brand" [value]="item.id" class="fs-4">{{item.bName}}</option>
             </select>
-            <div class="alert alert-warning" [hidden]="brandID?.valid||brandID?.untouched">
+            <div class="alert alert-warning fs-3" [hidden]="brandID?.valid||brandID?.untouched">
                 <small *ngIf="brandID?.errors?.['required']">
-                    product brandNot Selected is not required
+                    من فضلك اختر العلامه التجاريه الخاصه بهذا المنتج
                 </small>
             </div>
         </div>
         <div class="form-group  col-md-10">
-            <label for="Category">Product Category</label>
+            <label for="Category" class="fs-3">فئة المنتج</label>
             <select id="Category" class="form-control" name="Category" formControlName="categoryId" required>
-                <option *ngFor="let item of Categorie" [value]="item.id">{{item.catName}}</option>
+                <option *ngFor="let item of Categorie" [value]="item.id" class="fs-3">{{item.catName}}</option>
             </select>
-            <div class="alert alert-warning" [hidden]="categoryId?.valid||categoryId?.untouched">
+            <div class="alert alert-warning fs-3" [hidden]="categoryId?.valid||categoryId?.untouched">
                 <small *ngIf="categoryId?.errors?.['required']">
-                    product category is not Selected
+                    من فضلك اختر فئه المنتج
                 </small>
             </div>
         </div>
         <div class="form-group col-md-10">
-            <label for="Availability">Product Availability</label>
+            <label for="Availability" class="fs-3">المنتج متوافر</label>
             <select id="Availability" class="form-control" formControlName="availability" name="Availability">
-                <option [value]="true">متاحه </option>
-                <option [value]="false"> غير متاحه</option>
+                <option [value]="true" class="fs-3">متاح </option>
+                <option [value]="false" class="fs-3"> غير متاح</option>
             </select>
-            <div class="alert alert-warning" [hidden]="availability?.valid||availability?.untouched">
+            <div class="alert alert-warning fs-3" [hidden]="availability?.valid||availability?.untouched">
                 <small *ngIf="availability?.errors?.['required']">
-                    product availability is not Selected
+                    من فضلك حدد هل المنتج متاحه او غير متاح
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <button mat-flat-button color="primary" [disabled]="!FormProduct.valid" class="h-25"
-                type="submit">Add</button>
+            <button mat-flat-button color="primary" [disabled]="!FormProduct.valid" class="h-25 fs-3"
+                type="submit">اضافه
+                المنتج </button>
         </div>
         <br>
         <br>

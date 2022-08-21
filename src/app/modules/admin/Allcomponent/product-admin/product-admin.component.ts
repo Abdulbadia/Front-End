@@ -16,7 +16,7 @@ export class ProductAdminComponent implements OnInit {
   }
 
   displayedColumns: string[] =
-    ['id', 'name',
+    ['name',
       'price', 'availability', 'brandName', 'discountPercentage', 'quantity', 'Action'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -40,7 +40,7 @@ export class ProductAdminComponent implements OnInit {
   }
   Deleted_Produt(id) {
 
-    if (window.confirm('Are you sure you want to delete ')) {
+    if (window.confirm('هل أنت متأكد أنك تريد حذف  هذا المنتج ')) {
       this.Ser.DeleteProduct(id).subscribe(data => {
         this.getProducser();
       })

@@ -9,68 +9,68 @@ import { ServicesService } from './Service/service.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  // Products:any[]=[]
-  // Category:any[]=[];
-  // selectedCatId:number=0;
-  // ProdListToholdFliteredItems:any[]=[]
-  // loader:boolean=false
+  Products:any[]=[]
+  Category:any[]=[];
+  selectedCatId:number=0;
+  ProdListToholdFliteredItems:any[]=[]
+  loader:boolean=false
 
 
 //private service:ServicesService
   constructor(private service:ServicesService) { }
 
   ngOnInit(): void {
-    // this.getProducts()
-    // this.getCategory()
+    this.getProducts()
+    this.getCategory()
   }
 
-  // getProducts(){
-  //   this.loader =true
+  getProducts(){
+    this.loader =true
 
-  //   this.service.GetAllProducts().subscribe((result:any)=>{
-  //     this.loader =false
-  //     console.log(result);
-  //     this.Products=result
-
-  //   },error =>{
-  //     this.loader=false
-  //     alert("error")
-  //   })
-  // }
+    this.service.GetAllProducts().subscribe((result:any)=>{
+      this.loader =false
+      console.log(result);
+      this.Products=result 
+      
+    },error =>{
+      this.loader=false
+      alert("error")
+    })
+  }
 
   getCategory(){
-    // this.loader=true
+    this.loader=true
 
-    // this.service.GetAllprdicusByCat().subscribe((result:any)=>{
-    //   this.loader=false
+    this.service.GetAllprdicusByCat().subscribe((result:any)=>{
+      this.loader=false
 
-    //   console.log(result);
-    //   this.Category=result
-
-    // },error =>{
-    //   this.loader=false
-    //   alert("cat")
-    // })
+      console.log(result);
+      this.Category=result 
+      
+    },error =>{
+      this.loader=false
+      alert("cat")
+    })
   }
-  // GetAllProductsByCtegoryByID(keyword:string){
-  //   this.loader =true
-  //   this.service.GetAllProductsByCtegoryByID(keyword).subscribe((res:any)=>{
-  //     this.Products =res;
-  //     this.loader=false
+  GetAllProductsByCtegoryByID(keyword:string){
+    this.loader =true
+    this.service.GetAllProductsByCtegoryByID(keyword).subscribe((res:any)=>{
+      this.Products =res;
+      this.loader=false
+      
+    })
+   
+  }
+  filterCategory(event:any){
+     let value = event.target.value
+     if(value=='all')
+     this.getProducts()
+     else{
+      this.GetAllProductsByCtegoryByID(value)
 
-  //   })
-
-  // }
-//   filterCategory(event:any){
-//      let value = event.target.value
-//      if(value=='all')
-//      this.getProducts()
-//      else{
-//       this.GetAllProductsByCtegoryByID(value)
-
-//      }
-
-// }
+     }
+     
+}
 
 
 }

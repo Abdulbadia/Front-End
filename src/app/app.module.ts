@@ -16,7 +16,6 @@ import { FormsModule } from '@angular/forms';
 import { SharedfilesModule } from './Sharedfiles/sharedfiles/sharedfiles.module';
 import { ProductComponent } from './user/product/product.component';
 import { CartitemsComponent } from './user/cart/cartitems/cartitems.component';
-import { AboutComponent } from './user/about/about.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +29,7 @@ import { AboutComponent } from './user/about/about.component';
     UserComponent,
     PageNotFoundComponent,
     CartitemsComponent,
-    AboutComponent
+
   ],
   imports: [
     BrowserModule,
@@ -38,9 +37,7 @@ import { AboutComponent } from './user/about/about.component';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedfilesModule,
-    BrowserModule
-
+    SharedfilesModule
 
   ],
   providers: [],

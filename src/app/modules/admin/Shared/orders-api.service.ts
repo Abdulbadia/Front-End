@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError, retry } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { Orders } from '../Standers/orders';
+import { OrdersDetaials } from '../Standers/orders-detaials';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,12 @@ export class OrdersApiService {
   get_ordersByID(id: number): Observable<Orders> {
     return this.http.get<Orders>(`${environment.URL}/order/${id}`, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2), catchError(this.handleError))
   }
-
+  get_ordersDetaiels(): Observable<OrdersDetaials[]> {
+    return this.http.get<OrdersDetaials[]>(`${environment.URL}/OrderDetials`, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2), catchError(this.handleError))
+  }
+  get_ordersDetaielsByID(id: number): Observable<OrdersDetaials> {
+    return this.http.get<OrdersDetaials>(`${environment.URL}/OrderDetials/${id}`, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2), catchError(this.handleError))
+  }
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       console.log(error.message);

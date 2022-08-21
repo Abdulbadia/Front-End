@@ -41,25 +41,28 @@
     </div>
     <ul class="custom-scroll">
         <li routerLinkActive="active">
-            <a class="waves-effect waves-primary"><i class="la la-dashboard"></i>Admins</a>
+            <a class="waves-effect waves-primary fs-3" routerLink="./admin"><i class="la la-dashboard"></i>المشرفون</a>
         </li>
         <li routerLinkActive="active">
-            <a routerLink='./products' class="waves-effect waves-primary"><i class="la la-clone"></i>Products</a>
+            <a routerLink='./products' class="waves-effect waves-primary fs-3">
+                <i class="la la-clone"></i>المنتجات</a>
         </li>
 
         <li class="dropdown-sub-menu" routerLinkActive="active">
-            <a routerLink="./User" class="waves-effect waves-primary">
-                <i class="la la-users"></i>Customers</a>
+            <a routerLink="./User" class="waves-effect waves-primary fs-3">
+                <i class="la la-users"></i>العملاء</a>
         </li>
-        <li routerLinkActive="active"><a routerLink="./orders" class="waves-effect waves-primary"><i
-                    class="la la-cart-arrow-down"></i>Orders</a>
+        <li routerLinkActive="active">
+            <a routerLink="./orders" class="waves-effect waves-primary fs-3">
+                <i class="la la-cart-arrow-down"></i>الطلبات</a>
         </li>
-        <li><a href="javascript:;" class="waves-effect waves-primary"><i class="la la-wechat"></i>Messages</a></li>
-        <li><a href="javascript:;" class="waves-effect waves-primary"><i class="la la-bank"></i>Payments</a>
+        <li><a href="javascript:;" class="waves-effect waves-primary fs-3"><i class="la la-wechat"></i>الرسائل </a></li>
+        <li><a href="javascript:;" class="waves-effect waves-primary fs-3"><i class="la la-bank"></i>المدفوعات</a>
         </li>
-        <li><a href="javascript:;" class="waves-effect waves-primary"><i class="la la-image"></i>Media
-                Manager</a></li>
-        <li><a href="javascript:;" class="waves-effect waves-primary"><i class="la la-cog"></i>Settings</a>
+        <li><a href="javascript:;" class="waves-effect waves-primary fs-3"><i class="la la-image">
+
+                </i>مدير الإعلام</a></li>
+        <li><a href="javascript:;" class="waves-effect waves-primary fs-3"><i class="la la-cog"></i>الإعدادات</a>
         </li>
     </ul>
 </div>
@@ -224,8 +227,8 @@
                         <img src="./assets/images/AdminImage/img3.jpg" class="rounded" alt="" width="50">
 
                         <span class="logged-name px-3">
-                        {{username}}
-                          <br><small class="pt-3">Admin</small>
+                            {{username}}
+                            <br><small class="pt-3">Admin</small>
                         </span>
 
                         <i class="profile-dropdown la la-caret-square-o-down"></i>
@@ -249,7 +252,8 @@
                                     Favorites</a></li>
                             <li><a href="javascript:;" class=" waves-effect waves-light"><i class="la la-file"></i>
                                     Collections</a></li>
-                            <li (click)="signOut()"><a href="javascript:;" class=" waves-effect waves-light"><i class="la la-power-off"></i>
+                            <li (click)="signOut()"><a href="javascript:;" class=" waves-effect waves-light"><i
+                                        class="la la-power-off"></i>
                                     Sign Out</a>
                             </li>
                         </ul>

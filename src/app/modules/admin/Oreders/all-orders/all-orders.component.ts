@@ -25,10 +25,13 @@ export class AllOrdersComponent implements OnInit {
     })
   }
   DeletedMyorders(id: number) {
-    if (window.confirm("'Are you sure you want to delete ")) {
+    if (window.confirm("'هل أنت متأكد أنك تريد حذف الطلب ")) {
       this._orders.Delete_Order(id).subscribe(data => {
         return this.get_Allorders();
       })
     }
   }
+
+
+
 }

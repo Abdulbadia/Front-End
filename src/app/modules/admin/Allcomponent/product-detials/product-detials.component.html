@@ -1,4 +1,6 @@
-<section style="background-color: #eee;">
+<section style="background-color: #eee; 
+    direction: rtl; font-family: Arial, Helvetica, sans-serif;
+">
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6 col-xl-4">
@@ -7,24 +9,24 @@
                     <img src="{{Cratproduct.imageSrc}}" alt="" class="card-img-top" alt="Apple Computer" />
                     <div class="card-body">
                         <div class="text-center">
-                            <h5 class="card-title fs-4 pt-2">{{Cratproduct.name}}</h5>
+                            <h5 class="card-title fs-4 pt-2">{{Cratproduct.name}} </h5>
                             <p class="text-muted mb-4 fs-4 pt-2">{{Cratproduct.description}}</p>
                         </div>
                         <div>
                             <div class="d-flex justify-content-between  fs-4 pt-2">
-                                <span>Price</span> <span>{{Cratproduct.price| currency:'EGP ':true }}</span>
+                                <span>السعر</span> <span>{{Cratproduct.price| currency:'EGP ':true }}</span>
                             </div>
                             <div class="d-flex justify-content-between fs-4 pt-2">
-                                <span class="pt-2">Discount</span>
-                                <span>{{Cratproduct.discountPercentage|percent}}</span>
+                                <span class="pt-3">الخصم</span>
+                                <span class="pt-3">{{Cratproduct.discountPercentage|percent}}</span>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between total font-weight-bold mt-4 fs-4">
-                            <span>Quantity</span><span>{{Cratproduct.quantity}}</span>
+                            <span>الكمية</span><span>{{Cratproduct.quantity}}</span>
 
                         </div>
                         <div class="d-flex justify-content-between total font-weight-bold mt-4 fs-4">
-                            <span>Total</span><span>{{TotalPrice()}}</span>
+                            <span>اجمالي الحساب </span><span>{{TotalPrice()}}</span>
                         </div>
                     </div>
                     <button mat-flat-button color="primary" (click)="Myback()">Back</button>

@@ -1,0 +1,61 @@
+<section class="h-100 h-custom" style="background-color: #eee; direction: rtl;
+">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-8 col-xl-6">
+                <div class="card border-top border-bottom border-3" style="border-color: transparent !important;">
+                    <div class="card-body p-5">
+                        <p class="lead fw-bold mb-4 fs-4" style="color:black;">تفاصيل الطلب </p>
+                        <div class="row">
+                            <div class="col mb-3">
+                                <p class=" text-muted  fs-4 "> التاريخ </p>
+                                <p class="text-muted mt-1">{{_orders.order.date| date:'medium'}}</p>
+                            </div>
+                            <div class="col mb-3">
+                                <p class=" text-muted mb-2 fs-4">رقم الطلب</p>
+                                <p class="text-muted ml-4 fs-4">{{_orders.orderId}}</p>
+                            </div>
+                        </div>
+                        <div class="mx-n5 px-5 py-4" style="background-color: #f2f2f2;">
+                            <div class="row">
+                                <div class="col-md-8 col-lg-9">
+                                    <p class="m-1 p-3 fs-4"> اسم المنتج </p>
+                                    <p class="m-1 p-3 fs-4">الكمية</p>
+                                    <p class="m-1 p-3 fs-4">السعر</p>
+                                </div>
+                                <div class="col-md-4 col-lg-3 fs-4">
+                                    <p class="fs-5 m-1 p-3 fs-4"> {{_orders.product.name}} </p>
+                                    <p class="fs-5 m-1 p-3 fs-4">{{_orders.quantity}} </p>
+                                    <p class="m-1 fs-5">{{_orders.product.price | currency:'EGP'}}</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="mx-n5 px-5 py-4">
+                            <div class="row">
+                                <div class="col-md-8 col-lg-9">
+                                    <p class="m-1 p-3 fs-4"> اجمالي الحساب </p>
+
+                                </div>
+                                <div class="col-md-4 col-lg-3 fs-4">
+                                    <p class="fs-5 m-1 p-3"> {{totalPrice()}} </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="horizontal-timeline">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button mat-flat-button color="primary" (click)="Myback()">Back</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
