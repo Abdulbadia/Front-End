@@ -19,7 +19,7 @@ username:string=localStorage.getItem('fullname');
     this.AuthenticationService.getLoggedStatus().subscribe(status=>{
       this.isUserLogged=status;}
       )}
-
+IProduct
 logout(){
   console.log(this.isUserLogged);
   this.AuthenticationService.logout();

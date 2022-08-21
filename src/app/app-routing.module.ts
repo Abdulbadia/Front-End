@@ -7,7 +7,6 @@ import { CategoryComponent } from './user/category/category.component';
 import { ProductComponent } from './user/product/product.component';
 import { PageNotFoundComponent } from './maincomponents/page-not-found/page-not-found.component';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
-<<<<<<< Updated upstream
 import { AboutComponent } from './user/about/about.component';
 import { CartGuard } from './guards/cart.guard';
 const routes: Routes = [
@@ -20,16 +19,7 @@ const routes: Routes = [
     {path:'Products/:id',component:ProductComponent},
     {path:'about',component:AboutComponent}
 
-=======
-const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'Home', component: HomeComponent },
-  {
-    path: 'user', component: UserComponent, children: [
-      { path: 'cart', component: CartComponent },
-      { path: 'category', component: CategoryComponent },
-      { path: 'Product', component: ProductComponent }
->>>>>>> Stashed changes
+
 
     ]
   }
@@ -48,7 +38,7 @@ const routes: Routes = [
   , {
     path: "Admin", loadChildren: () => import("src/app/modules/admin/admin.module")
       .then(m => m.AdminModule)
-      // ,canActivate:[AuthGuardGuard]
+      ,canActivate:[AuthGuardGuard]
     }
   , { path: '**', component: PageNotFoundComponent }
 

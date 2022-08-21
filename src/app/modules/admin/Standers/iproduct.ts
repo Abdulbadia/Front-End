@@ -1,5 +1,6 @@
 
 export interface IProduct {
+  imageSrc?:string;
     id?: number;
     name: string;
     image?:string;
