@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OrdersApiService } from '../../Shared/orders-api.service';
 import { Location } from '@angular/common';
-import { Orders } from '../../Standers/orders';
 import { OrdersDetaials } from '../../Standers/orders-detaials';
 
 @Component({
@@ -15,11 +14,10 @@ export class OrdersDetailesComponent implements OnInit {
   constructor(private _Apiorders: OrdersApiService, private _Router: ActivatedRoute,
     private _location: Location) { }
   ordersID = this._Router.snapshot.params['id'];
-  _orders: OrdersDetaials;
+  _orders: OrdersDetaials[];
 
   ngOnInit(): void {
     this.getordersbyID(this.ordersID);
-    this.totalPrice();
   }
   Myback() {
     this._location.back();
@@ -30,9 +28,8 @@ export class OrdersDetailesComponent implements OnInit {
       console.log(this._orders);
     })
   }
-  Mytotal: number;
-  totalPrice() {
-    this.Mytotal = this._orders.price * this._orders.quantity;
-    return this.Mytotal;
-  }
+
 }
+
+
+

@@ -27,8 +27,8 @@ export class OrdersApiService {
   get_ordersDetaiels(): Observable<OrdersDetaials[]> {
     return this.http.get<OrdersDetaials[]>(`${environment.URL}/OrderDetials`, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2), catchError(this.handleError))
   }
-  get_ordersDetaielsByID(id: number): Observable<OrdersDetaials> {
-    return this.http.get<OrdersDetaials>(`${environment.URL}/OrderDetials/${id}`, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2), catchError(this.handleError))
+  get_ordersDetaielsByID(id: number): Observable<OrdersDetaials[]> {
+    return this.http.get<OrdersDetaials[]>(`${environment.URL}/OrderDetials/${id}`, { headers: { 'Content-Type': 'application/json' } }).pipe(retry(2), catchError(this.handleError))
   }
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
