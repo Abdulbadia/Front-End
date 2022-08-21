@@ -36,11 +36,10 @@ export class ProductAPiService {
   Create_product(FormData: FormData) {
     return this.http.post(`${environment.URL}/Product`, FormData).pipe(retry(2), catchError(this.handleError))
   }
-  Edit_product_edit(pid: number, product: IProduct): Observable<IProduct> {
-    return this.http.put<IProduct>(`${environment.URL}/Product/${pid}`, product,
-      { headers: { 'Content-Type': 'application/json' } }).pipe(
-        retry(2),
-        catchError(this.handleError))
+  Edit_product_edit(pid: number, product: FormData): Observable<IProduct> {
+    return this.http.put<IProduct>(`${environment.URL}/Product/${pid}`, product).pipe(
+      retry(2),
+      catchError(this.handleError))
   }
 
   DeleteProduct(id): Observable<IProduct> {

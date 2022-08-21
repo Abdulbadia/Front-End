@@ -23,7 +23,7 @@ export class UsersComponent implements OnInit {
   }
 
   Delete_USers(email: string) {
-    if (window.confirm('Are you sure you want to delete this user')) {
+    if (window.confirm('هل أنت متأكد أنك تريد حذف هذا المستخدم')) {
       this._userService.Delete_USers(email).subscribe(data => {
         this.get_ALLUSers();
       })

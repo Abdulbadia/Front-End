@@ -1,12 +1,17 @@
 table {
     width: 100%;
     font-size: 25px;
+    text-align: center;
+    direction: rtl;
+
 }
 
 table th,
 td {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
+    text-align: center;
+    direction: rtl;
 }
 
 .example-button-row {

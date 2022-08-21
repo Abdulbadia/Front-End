@@ -19,6 +19,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { UserDetailesComponent } from './Customer/user-detailes/user-detailes.component';
 import { EditeUsersComponent } from './Customer/edite-users/edite-users.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OrdersDetailesComponent } from './Oreders/orders-detailes/orders-detailes.component';
+import { AdminAcountComponent } from './admin-compoment/admin-acount/admin-acount.component';
+import { CreateAdminComponent } from './admin-compoment/create-admin/create-admin.component';
 
 
 const routes: Routes =
@@ -31,6 +34,9 @@ const routes: Routes =
         { path: "Edit/:id", component: UpdateProductComponent },
         { path: "User", component: UsersComponent },
         { path: "orders", component: AllOrdersComponent },
+        { path: "orders/:id", component: OrdersDetailesComponent },
+        { path: "admin", component: AdminAcountComponent },
+        { path: "Createadmin", component: CreateAdminComponent }
       ]
     }
   ]
@@ -47,7 +53,10 @@ const routes: Routes =
     AllOrdersComponent,
     HomeMosteradminComponent,
     UserDetailesComponent,
-    EditeUsersComponent
+    EditeUsersComponent,
+    OrdersDetailesComponent,
+    AdminAcountComponent,
+    CreateAdminComponent
 
   ],
   imports: [

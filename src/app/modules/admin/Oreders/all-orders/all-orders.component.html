@@ -21,8 +21,7 @@
                     <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
-                    <a mat-menu-item style="font-size:20px;">Detailes</a>
-                    <button mat-menu-item style="font-size:20px;">Edit</button>
+                    <a mat-menu-item style="font-size:20px;" routerLink="{{'../orders/' + element.id}}">Detailes</a>
                 </mat-menu>
                 <button mat-flat-button (click)="DeletedMyorders(element.id)">
                     <mat-icon style="font-size:30px;">delete</mat-icon>

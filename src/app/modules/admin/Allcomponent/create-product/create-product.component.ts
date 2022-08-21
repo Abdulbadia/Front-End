@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiBrandService } from '../../Shared/api-brand.service';
 import { CategoriesApiService } from '../../Shared/categories-api.service';
 import { ProductAPiService } from '../../Shared/product-api.service';
@@ -16,16 +16,18 @@ import { IProduct } from '../../Standers/iproduct';
 export class CreatePRoductComponent implements OnInit {
 
   constructor(private api_Ser: ProductAPiService, private Cat_Api: CategoriesApiService,
-    private _router: Router, private Bra_APi: ApiBrandService, private fb: FormBuilder) {
+    private _router: Router, private Bra_APi: ApiBrandService, private fb: FormBuilder,
+    private _Active: ActivatedRoute) {
   }
   FormProduct: FormGroup;
   product: IProduct = {} as IProduct;
   Categorie: Categories[] = [];
   Brand: IBrand[] = [];
+  id: number;
   ngOnInit(): void {
     this.get_Categories();
     this.get_AllBrandIds();
-
+    this.id = this._Active.snapshot.params['id'];
     this.FormProduct = this.fb.group({
       name: ['', Validators.required],
       imageFile: ['', Validators.required],
@@ -37,6 +39,7 @@ export class CreatePRoductComponent implements OnInit {
       availability: ['', Validators.required],
       discountPercentage: ['', Validators.required]
     })
+
   }
 
   get name() {
@@ -104,12 +107,8 @@ export class CreatePRoductComponent implements OnInit {
   }
 
 
-  updata_Product(id: number, body: IProduct) {
-    return this.api_Ser.Edit_product_edit(id, body).subscribe(data => {
-      console.log(data);
-    })
 
-  }
+
 }
 
 
